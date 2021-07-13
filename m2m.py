@@ -1,18 +1,26 @@
 from typing import List
 from typing import List
 
+import torch
 from transformers import AutoTokenizer
 from transformers import M2M100ForConditionalGeneration
 
 
 class M2M:
+    """
+    M2M model wrapper.
+
+    Args:
+        device: Where torch should move the model
+    """
+
     def __init__(self, device="cuda", weights="facebook/m2m100_418M") -> None:
 
         self.device = device
         self.model = M2M100ForConditionalGeneration.from_pretrained(weights).to(self.device)
         self.model.eval()
 
-        self.tokenizer = AutoTokenizer.from_pretrained("weights")
+        self.tokenizer = AutoTokenizer.from_pretrained(weights)
 
     def greedy_until(self, texts: List, src_lang: str, tar_lang: str) -> str:
         """
@@ -31,9 +39,10 @@ class M2M:
 
         generations = []
 
-        for txt in texts:
-            encoded_txt = self.tokenizer(txt, return_tensors="pt")
-            gen = self.model.generate(**encoded_txt, forced_bos_token_id=forced_bos_token_id)
-            generations.append(gen)
+        with torch.no_grad():
+            for txt in texts:
+                txt_tensor = self.tokenizer(txt, return_tensors="pt")["input_ids"].to(self.device)
+                gen = self.model.generate(txt_tensor, forced_bos_token_id=forced_bos_token_id).cpu()
+                generations.append(self.tokenizer.batch_decode(gen, skip_special_tokens=True))
 
         return generations

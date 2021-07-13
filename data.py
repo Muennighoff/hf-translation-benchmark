@@ -32,19 +32,20 @@ class Translation:
             for file in (self.src_file, self.ref_file)
         ]
 
-    def get_src_ref(self) -> List[Dict]:
+    def get_src_ref(self, sample=None) -> List[Dict]:
         """
         Returns:
             A iterable of any object, that doc_to_text can handle
+            sample: How much to sample - Note that a None slice returns the entire list
         """
-        return self.src_data, self.ref_data
+        return self.src_data[:sample], self.ref_data[:sample]
 
     def doc_to_text(self, doc):
         return doc["src"], self.lang_codes
 
     # def format_bleu(preds: List, refs: List) -> tuple(List[str], List[List[str]]):
 
-    def score_bleu(preds: List, refs: List) -> float:
+    def score_bleu(self, preds: List, refs: List) -> float:
         """
         Calculates BLEU score.
         """
