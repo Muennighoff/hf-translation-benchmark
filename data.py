@@ -50,13 +50,15 @@ class Translation:
 
 TRANSLATION_BENCHMARKS = {}
 
+
+# Allowing indexing via wmt20 or wmt20-de-fr
 for ds_name in sacrebleu.get_available_testsets():
     TRANSLATION_BENCHMARKS[ds_name] = []
     for lang_pair in sacrebleu.get_langpairs_for_testset(ds_name):
         TRANSLATION_BENCHMARKS[ds_name].append((ds_name, lang_pair))
         TRANSLATION_BENCHMARKS[f"{ds_name}-{lang_pair}"] = [(ds_name, lang_pair)]
 
-
+# Allowing indexing via de-fr by pre-selecting the best datasets
 TRANSLATION_BENCHMARKS["cs-en"] = [("wmt20", "cs-en")]
 TRANSLATION_BENCHMARKS["de-en"] = [("wmt20", "de-en")]
 TRANSLATION_BENCHMARKS["de-fr"] = [("wmt20", "de-fr")]
@@ -79,3 +81,29 @@ TRANSLATION_BENCHMARKS["ps-en"] = [("wmt20", "ps-en")]
 TRANSLATION_BENCHMARKS["ru-en"] = [("wmt20", "ru-en")]
 TRANSLATION_BENCHMARKS["ta-en"] = [("wmt20", "ta-en")]
 TRANSLATION_BENCHMARKS["zh-en"] = [("wmt20", "zh-en")]
+
+TRANSLATION_BENCHMARKS["en-hi"] = [("wmt14", "en-hi")]
+TRANSLATION_BENCHMARKS["hi-en"] = [("wmt14", "hi-en")]
+
+TRANSLATION_BENCHMARKS["en-es"] = [("wmt13", "en-es")]
+TRANSLATION_BENCHMARKS["es-en"] = [("wmt13", "es-en")]
+
+TRANSLATION_BENCHMARKS["en-ko"] = [("iwslt17", "en-ko")]
+TRANSLATION_BENCHMARKS["ko-en"] = [("iwslt17", "ko-en")]
+
+TRANSLATION_BENCHMARKS["en-it"] = [("wmt09", "en-it")]
+TRANSLATION_BENCHMARKS["it-en"] = [("wmt09", "it-en")]
+
+
+# Allowing indexing via e.g. "top10_gdp" by pre-selecting lang pairs
+
+# https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)
+lang_pairs = ["en-zh", "en-ja", "en-de", "de-fr" "en-hi", "en-fr", "en-it", "en-ko"]
+TRANSLATION_BENCHMARKS["top10_gdp"] = []
+for pair in lang_pairs:
+    TRANSLATION_BENCHMARKS["top10_gdp"].extend(TRANSLATION_BENCHMARKS[pair])
+    src, tar = pair.split("-")
+    inv_pair = "-".join(tar, src)
+    TRANSLATION_BENCHMARKS["top10_gdp"].extend(TRANSLATION_BENCHMARKS[inv_pair])
+
+# https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
