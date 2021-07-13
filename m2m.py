@@ -14,7 +14,7 @@ class M2M:
         device: Where torch should move the model
     """
 
-    def __init__(self, device="cuda", weights="facebook/m2m100_418M") -> None:
+    def __init__(self, device=torch.device("cuda"), weights: str = "facebook/m2m100_418M") -> None:
 
         self.device = device
         self.model = M2M100ForConditionalGeneration.from_pretrained(weights).to(self.device)
@@ -22,7 +22,7 @@ class M2M:
 
         self.tokenizer = AutoTokenizer.from_pretrained(weights)
 
-    def greedy_until(self, texts: List, src_lang: str, tar_lang: str) -> str:
+    def greedy_until(self, texts: List, src_lang: str, tar_lang: str) -> List[str]:
         """
         Greedily generates translation of texts from source to target.
 
@@ -43,6 +43,6 @@ class M2M:
             for txt in texts:
                 txt_tensor = self.tokenizer(txt, return_tensors="pt")["input_ids"].to(self.device)
                 gen = self.model.generate(txt_tensor, forced_bos_token_id=forced_bos_token_id).cpu()
-                generations.append(self.tokenizer.batch_decode(gen, skip_special_tokens=True))
+                generations.append(self.tokenizer.batch_decode(gen, skip_special_tokens=True)[0])
 
         return generations

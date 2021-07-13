@@ -3,12 +3,6 @@ from typing import Dict, List
 import sacrebleu
 
 
-TRANSLATION_BENCHMARKS = {
-    ds_name: sacrebleu.get_langpairs_for_testset(ds_name)
-    for ds_name in sacrebleu.get_available_testsets()
-}
-
-
 class Translation:
     def __init__(self, sacrebleu_dataset, sacrebleu_language_pair=None) -> None:
         """
@@ -52,3 +46,34 @@ class Translation:
         # Format into
         # refs, preds = _sacreformat(refs, preds)
         return sacrebleu.corpus_bleu(preds, [refs]).score
+
+
+TRANSLATION_BENCHMARKS = {}
+
+for ds_name in sacrebleu.get_available_testsets():
+    for lang_pair in sacrebleu.get_langpairs_for_testset(ds_name):
+        TRANSLATION_BENCHMARKS[f"{ds_name}-{lang_pair}"] = (ds_name, lang_pair)
+
+
+TRANSLATION_BENCHMARKS["cs-en"] = ("wmt20", "cs-en")
+TRANSLATION_BENCHMARKS["de-en"] = ("wmt20", "de-en")
+TRANSLATION_BENCHMARKS["de-fr"] = ("wmt20", "de-fr")
+TRANSLATION_BENCHMARKS["en-cs"] = ("wmt20", "en-cs")
+TRANSLATION_BENCHMARKS["en-de"] = ("wmt20", "en-de")
+TRANSLATION_BENCHMARKS["en-iu"] = ("wmt20", "en-iu")
+TRANSLATION_BENCHMARKS["en-ja"] = ("wmt20", "en-ja")
+TRANSLATION_BENCHMARKS["en-km"] = ("wmt20", "en-km")
+TRANSLATION_BENCHMARKS["en-pl"] = ("wmt20", "en-pl")
+TRANSLATION_BENCHMARKS["en-ps"] = ("wmt20", "en-ps")
+TRANSLATION_BENCHMARKS["en-ru"] = ("wmt20", "en-ru")
+TRANSLATION_BENCHMARKS["en-ta"] = ("wmt20", "en-ta")
+TRANSLATION_BENCHMARKS["en-zh"] = ("wmt20", "en-zh")
+TRANSLATION_BENCHMARKS["fr-de"] = ("wmt20", "fr-de")
+TRANSLATION_BENCHMARKS["iu-en"] = ("wmt20", "iu-en")
+TRANSLATION_BENCHMARKS["ja-en"] = ("wmt20", "ja-en")
+TRANSLATION_BENCHMARKS["km-en"] = ("wmt20", "km-en")
+TRANSLATION_BENCHMARKS["pl-en"] = ("wmt20", "pl-en")
+TRANSLATION_BENCHMARKS["ps-en"] = ("wmt20", "ps-en")
+TRANSLATION_BENCHMARKS["ru-en"] = ("wmt20", "ru-en")
+TRANSLATION_BENCHMARKS["ta-en"] = ("wmt20", "ta-en")
+TRANSLATION_BENCHMARKS["zh-en"] = ("wmt20", "zh-en")
