@@ -54,7 +54,7 @@ def main():
 
     out = "\n-----\n".join([f"{lang_pair} - BLEU: {score}" for lang_pair, score in results.items()])
     print(out)
-    with open("./out.txt") as f:
+    with open("./out.txt", "a") as f:
         f.write(out)
 
 
