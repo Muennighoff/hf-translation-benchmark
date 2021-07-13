@@ -7,6 +7,9 @@ import numpy as np
 from tqdm import tqdm
 
 from m2m import M2M
+from mbart import MBART
+from marianmt import MARIANMT
+
 from data import TRANSLATION_BENCHMARKS, Translation
 
 
@@ -16,11 +19,11 @@ def parse_args():
     parser.add_argument("--weights", type=str, default="facebook/m2m100_418M")
     parser.add_argument("--data", help="Can be de-fr or wmt20-de-fr", type=str, default="en-fr")
     parser.add_argument("--sample", type=int, default=None)
-    parser.add_argument("--seed", type=int, default=1234)
+    parser.add_argument("--seed", type=int, default=42)
     return parser.parse_args()
 
 
-MODELS = {"m2m": M2M}
+MODELS = {"m2m": M2M, "mbart": MBART, "marianmt": MARIANMT}
 
 
 def main():
