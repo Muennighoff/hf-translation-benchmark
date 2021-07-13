@@ -52,7 +52,7 @@ def main():
 
         logging.info(f"Scored {score} on language pair {lang_pair}.")
 
-    out = "\n-----\n".join([f"{lang_pair} - BLEU: {score}" for lang_pair, score in results.items])
+    out = "\n-----\n".join([f"{lang_pair} - BLEU: {score}" for lang_pair, score in results.items()])
     print(out)
     with open("./out.txt") as f:
         f.write(out)
