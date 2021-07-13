@@ -120,6 +120,6 @@ for pair in lang_pairs:
 lang_pairs = ["es-en", "fr-en", "it-en"]
 TRANSLATION_BENCHMARKS["mt-roa-en"] = []
 for pair in lang_pairs:
-    TRANSLATION_BENCHMARKS["mt-roa-ena"].extend(TRANSLATION_BENCHMARKS[pair])
+    TRANSLATION_BENCHMARKS["mt-roa-en"].extend(TRANSLATION_BENCHMARKS[pair])
 
 # https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
