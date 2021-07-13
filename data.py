@@ -111,12 +111,15 @@ for pair in lang_pairs:
 # https://huggingface.co/Helsinki-NLP/opus-mt-en-roa
 # From english to some romance languages available in MarianMT
 lang_pairs = ["en-es", "en-fr", "en-it"]
-TRANSLATION_BENCHMARKS["mt-en-roa"] = [TRANSLATION_BENCHMARKS[pair] for pair in lang_pairs]
+TRANSLATION_BENCHMARKS["mt-en-roa"] = []
+for pair in lang_pairs:
+    TRANSLATION_BENCHMARKS["mt-en-roa"].extend(TRANSLATION_BENCHMARKS[pair])
 
 # https://huggingface.co/Helsinki-NLP/opus-mt-roa-en
 # From romance languages to english available in MarianMT
 lang_pairs = ["es-en", "fr-en", "it-en"]
-TRANSLATION_BENCHMARKS["mt-roa-en"] = [TRANSLATION_BENCHMARKS[pair] for pair in lang_pairs]
-
+TRANSLATION_BENCHMARKS["mt-roa-en"] = []
+for pair in lang_pairs:
+    TRANSLATION_BENCHMARKS["mt-roa-ena"].extend(TRANSLATION_BENCHMARKS[pair])
 
 # https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
