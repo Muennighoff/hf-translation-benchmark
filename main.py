@@ -23,6 +23,7 @@ def parse_args():
     parser.add_argument("--data", help="E.g. de-fr, wmt20, top10_gdp", type=str, default="en-fr")
     parser.add_argument("--sample", type=int, default=None)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--out", type=str, default="out.txt")
     return parser.parse_args()
 
 
@@ -68,7 +69,7 @@ def main():
         out_string += f'\n---------------------------\n{lang_pair}\n\nBLEU\n{info["score"]}\n\nAVG SPEED\n{info["avg_speed"]}\n\nMEM REPORT\n{info["mem_report"]}'
 
     print(out_string)
-    with open("./out.txt", "w") as f:
+    with open(args.out, "w") as f:
         f.write(out_string)
 
 
