@@ -1,5 +1,4 @@
 from typing import List
-from typing import List
 
 import torch
 from transformers import AutoTokenizer
@@ -7,6 +6,7 @@ from transformers import MBartForConditionalGeneration
 
 ### DEFINITIONS ###
 
+# See https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt
 MBART_CODES = {
     "af": "af_ZA",
     "az": "az_AZ",

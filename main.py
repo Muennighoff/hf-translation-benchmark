@@ -8,11 +8,9 @@ import numpy as np
 from tqdm import tqdm
 from pytorch_memlab import LineProfiler
 
-
 from m2m import M2M
 from mbart import MBART
 from marianmt import MARIANMT
-
 from data import TRANSLATION_BENCHMARKS, Translation
 
 

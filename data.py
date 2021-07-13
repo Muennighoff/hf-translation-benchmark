@@ -13,7 +13,7 @@ class Translation:
         self.sacrebleu_language_pair = sacrebleu_language_pair
         self.lang_codes = self.sacrebleu_language_pair.split("-")
 
-    def download(self):
+    def download(self) -> None:
         """
         Download datasets.
         """
@@ -34,16 +34,11 @@ class Translation:
         """
         return self.src_data[:sample], self.ref_data[:sample]
 
-    def doc_to_text(self, doc):
-        return doc["src"], self.lang_codes
-
-    # def format_bleu(preds: List, refs: List) -> tuple(List[str], List[List[str]]):
-
     def score_bleu(self, preds: List, refs: List) -> float:
         """
         Calculates BLEU score.
         """
-        # Format into
+        # TODO (Muennighoff): Format when there are multiple refs
         # refs, preds = _sacreformat(refs, preds)
         return sacrebleu.corpus_bleu(preds, [refs]).score
 
@@ -97,16 +92,16 @@ TRANSLATION_BENCHMARKS["en-it"] = [("wmt09", "en-it")]
 TRANSLATION_BENCHMARKS["it-en"] = [("wmt09", "it-en")]
 
 
-# Allowing indexing via e.g. "top10_gdp" by pre-selecting lang pairs
+# Allowing indexing via e.g. "gdp-top10" by pre-selecting lang pairs
 
 # https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)
 lang_pairs = ["en-zh", "en-ja", "en-de", "de-fr", "en-hi", "en-fr", "en-it", "en-ko"]
-TRANSLATION_BENCHMARKS["top10-gdp"] = []
+TRANSLATION_BENCHMARKS["gdp-top10"] = []
 for pair in lang_pairs:
-    TRANSLATION_BENCHMARKS["top10-gdp"].extend(TRANSLATION_BENCHMARKS[pair])
+    TRANSLATION_BENCHMARKS["gdp-top10"].extend(TRANSLATION_BENCHMARKS[pair])
     src, tar = pair.split("-")
     inv_pair = "-".join([tar, src])
-    TRANSLATION_BENCHMARKS["top10-gdp"].extend(TRANSLATION_BENCHMARKS[inv_pair])
+    TRANSLATION_BENCHMARKS["gdp-top10"].extend(TRANSLATION_BENCHMARKS[inv_pair])
 
 # https://huggingface.co/Helsinki-NLP/opus-mt-en-roa
 # From english to some romance languages available in MarianMT
