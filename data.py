@@ -90,6 +90,8 @@ TRANSLATION_BENCHMARKS["es-en"] = [("wmt13", "es-en")]
 
 TRANSLATION_BENCHMARKS["en-ko"] = [("iwslt17", "en-ko")]
 TRANSLATION_BENCHMARKS["ko-en"] = [("iwslt17", "ko-en")]
+TRANSLATION_BENCHMARKS["en-fr"] = [("iwslt17", "en-fr")]
+TRANSLATION_BENCHMARKS["fr-en"] = [("iwslt17", "fr-en")]
 
 TRANSLATION_BENCHMARKS["en-it"] = [("wmt09", "en-it")]
 TRANSLATION_BENCHMARKS["it-en"] = [("wmt09", "it-en")]
@@ -98,12 +100,12 @@ TRANSLATION_BENCHMARKS["it-en"] = [("wmt09", "it-en")]
 # Allowing indexing via e.g. "top10_gdp" by pre-selecting lang pairs
 
 # https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)
-lang_pairs = ["en-zh", "en-ja", "en-de", "de-fr" "en-hi", "en-fr", "en-it", "en-ko"]
+lang_pairs = ["en-zh", "en-ja", "en-de", "de-fr", "en-hi", "en-fr", "en-it", "en-ko"]
 TRANSLATION_BENCHMARKS["top10_gdp"] = []
 for pair in lang_pairs:
     TRANSLATION_BENCHMARKS["top10_gdp"].extend(TRANSLATION_BENCHMARKS[pair])
     src, tar = pair.split("-")
-    inv_pair = "-".join(tar, src)
+    inv_pair = "-".join([tar, src])
     TRANSLATION_BENCHMARKS["top10_gdp"].extend(TRANSLATION_BENCHMARKS[inv_pair])
 
 # https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
