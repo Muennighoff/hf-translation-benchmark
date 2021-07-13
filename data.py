@@ -101,11 +101,22 @@ TRANSLATION_BENCHMARKS["it-en"] = [("wmt09", "it-en")]
 
 # https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)
 lang_pairs = ["en-zh", "en-ja", "en-de", "de-fr", "en-hi", "en-fr", "en-it", "en-ko"]
-TRANSLATION_BENCHMARKS["top10_gdp"] = []
+TRANSLATION_BENCHMARKS["top10-gdp"] = []
 for pair in lang_pairs:
-    TRANSLATION_BENCHMARKS["top10_gdp"].extend(TRANSLATION_BENCHMARKS[pair])
+    TRANSLATION_BENCHMARKS["top10-gdp"].extend(TRANSLATION_BENCHMARKS[pair])
     src, tar = pair.split("-")
     inv_pair = "-".join([tar, src])
-    TRANSLATION_BENCHMARKS["top10_gdp"].extend(TRANSLATION_BENCHMARKS[inv_pair])
+    TRANSLATION_BENCHMARKS["top10-gdp"].extend(TRANSLATION_BENCHMARKS[inv_pair])
+
+# https://huggingface.co/Helsinki-NLP/opus-mt-en-roa
+# From english to some romance languages available in MarianMT
+lang_pairs = ["en-es", "en-fr", "en-it"]
+TRANSLATION_BENCHMARKS["mt-en-roa"] = [TRANSLATION_BENCHMARKS[pair] for pair in lang_pairs]
+
+# https://huggingface.co/Helsinki-NLP/opus-mt-roa-en
+# From romance languages to english available in MarianMT
+lang_pairs = ["es-en", "fr-en", "it-en"]
+TRANSLATION_BENCHMARKS["mt-roa-en"] = [TRANSLATION_BENCHMARKS[pair] for pair in lang_pairs]
+
 
 # https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers

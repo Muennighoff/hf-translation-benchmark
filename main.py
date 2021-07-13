@@ -40,7 +40,7 @@ def main():
 
     # Iterate through tasks
     results = {}
-    for dataset, lang_pair in TRANSLATION_BENCHMARKS[args.data]:
+    for dataset, lang_pair in tqdm(TRANSLATION_BENCHMARKS[args.data]):
 
         # Data preparation
         task = Translation(dataset, lang_pair)
@@ -65,21 +65,8 @@ def main():
 
     out_string = f"MODEL REPORT: {args.weights}"
     for lang_pair, info in results.items():
+        out_string += f'\n---------------------------\n{lang_pair}\n\nBLEU\n{info["score"]}\n\nAVG SPEED\n{info["avg_speed"]}\n\nMEM REPORT\n{info["mem_report"]}'
 
-        out_string += f"""
-        -----------------
-        {lang_pair}
-
-        BLEU
-        {info["score"]}
-
-        AVG SPEED
-        {info["avg_speed"]}
-
-        MEM REPORT
-        {info["mem_report"]}
-        
-        """
     print(out_string)
     with open("./out.txt", "w") as f:
         f.write(out_string)
