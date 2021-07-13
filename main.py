@@ -1,10 +1,13 @@
 import argparse
 import random
 import logging
+import time
 
 import torch
 import numpy as np
 from tqdm import tqdm
+from pytorch_memlab import LineProfiler
+
 
 from m2m import M2M
 from mbart import MBART
@@ -17,7 +20,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str, default="m2m")
     parser.add_argument("--weights", type=str, default="facebook/m2m100_418M")
-    parser.add_argument("--data", help="Can be de-fr or wmt20-de-fr", type=str, default="en-fr")
+    parser.add_argument("--data", help="E.g. de-fr, wmt20, top10_gdp", type=str, default="en-fr")
     parser.add_argument("--sample", type=int, default=None)
     parser.add_argument("--seed", type=int, default=42)
     return parser.parse_args()
@@ -46,19 +49,40 @@ def main():
 
         # Predict on all data
         src_lang, tar_lang = lang_pair.split("-")
-        preds = model.greedy_until(src, src_lang, tar_lang)
+
+        with LineProfiler(model.greedy_until) as prof:
+            x = time.time()
+            preds = model.greedy_until(src, src_lang, tar_lang)
+            avg_speed = (time.time() - x) / len(src)
+        mem_report = prof.display()
 
         # Score on all data
         score = task.score_bleu(preds, ref)
 
-        results[lang_pair] = score
+        results[lang_pair] = {"score": score, "avg_speed": avg_speed, "mem_report": mem_report}
 
         logging.info(f"Scored {score} on language pair {lang_pair}.")
 
-    out = "\n-----\n".join([f"{lang_pair} - BLEU: {score}" for lang_pair, score in results.items()])
-    print(out)
+    out_string = f"MODEL REPORT: {args.weights}"
+    for lang_pair, info in results.items():
+
+        out_string += f"""
+        -----------------
+        {lang_pair}
+
+        BLEU
+        {info["score"]}
+
+        AVG SPEED
+        {info["avg_speed"]}
+
+        MEM REPORT
+        {info["mem_report"]}
+        
+        """
+    print(out_string)
     with open("./out.txt", "w") as f:
-        f.write(out)
+        f.write(out_string)
 
 
 if __name__ == "__main__":
