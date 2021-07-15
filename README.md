@@ -16,12 +16,13 @@ python main.py --model m2m --weights facebook/m2m100_418M --data en-ja --sample 
 See the table below for a BLEU Score benchmark on the Top 10 languages by country GDP:
 
 |       |  m2m-418  | m2m-1200  | mbart  | marianmt  | GPT-2* |
-| ----------- | ----------- |-----------|-----------|-----------|
+| ----------- | ----------- |-----------|-----------|-----------|-----------|
 | en-zh   |  **X/3**  |  **X/3** |  **X/3** | **X/3** | **X/3** |
 | zh-en   |  **X/3**  |  **X/3** |  **X/3** | **X/3** | **X/3** |
 | en-ja   |  **X/3**  |  **X/3** |  **X/3** | **X/3** | **X/3** |
 | ja-en   |  **X/3**  |  **X/3** |  **X/3** |  **X/3**| **X/3** |
 | Memory   |  **X/3**  |  **X/3** |  **X/3** | **X/3**| **X/3** |
+
 
 
 
