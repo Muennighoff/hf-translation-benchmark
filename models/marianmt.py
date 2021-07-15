@@ -47,7 +47,9 @@ class MARIANMT:
 
         self.tokenizer = AutoTokenizer.from_pretrained(weights)
 
-    def greedy_until(self, texts: List, src_lang: str, tar_lang: str) -> List[str]:
+    def greedy_until(
+        self, texts: List, src_lang: str, tar_lang: str, batch_size: int = 1
+    ) -> List[str]:
         """
         Greedily generates translation of texts from source to target.
 
@@ -67,12 +69,12 @@ class MARIANMT:
         generations = []
 
         with torch.no_grad():
-            for txt in texts:
-                txt = prepend + txt
-                txt_tensor = self.tokenizer(txt, truncation=True, return_tensors="pt")[
-                    "input_ids"
-                ].to(self.device)
-                gen = self.model.generate(txt_tensor).cpu()
-                generations.append(self.tokenizer.batch_decode(gen, skip_special_tokens=True)[0])
+            for i in range(0, len(texts), batch_size):
+                batch = texts[i : i + batch_size]
+                batch = [prepend + txt for txt in batch]
+                batch = self.tokenizer(batch, padding=True, truncation=True, return_tensors="pt")
+                batch = {k: v.to(self.device) for k, v in batch.items()}
+                gen = self.model.generate(**batch).cpu()
+                generations.extend(self.tokenizer.batch_decode(gen, skip_special_tokens=True))
 
         return generations

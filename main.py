@@ -17,6 +17,7 @@ def parse_args():
     parser.add_argument("--model", type=str, default="m2m")
     parser.add_argument("--weights", type=str, default="facebook/m2m100_418M")
     parser.add_argument("--data", help="E.g. de-fr, wmt20, gdp-top10", type=str, default="en-fr")
+    parser.add_argument("--bs", type=int, help="Batch size to use", default=1)
     parser.add_argument("--sample", type=int, default=None)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--out", type=str, default="out.txt")
@@ -54,12 +55,12 @@ def main():
         src_lang, tar_lang = lang_pair.split("-")
 
         x = time.time()
-        preds = model.greedy_until(src, src_lang, tar_lang)
+        preds = model.greedy_until(src, src_lang, tar_lang, args.bs)
         avg_speed = (time.time() - x) / len(src)
 
         # Profile CPU / CUDA usage on just one sample
         with profile(activities=prof_acts, record_shapes=True) as prof:
-            model.greedy_until(src[0], src_lang, tar_lang)
+            model.greedy_until(src[:1], src_lang, tar_lang)
 
         # Score on all data
         score = task.score_bleu(preds, ref)
