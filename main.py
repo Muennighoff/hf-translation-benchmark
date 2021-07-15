@@ -4,21 +4,19 @@ import logging
 import time
 
 import torch
+from torch.profiler import profile, ProfilerActivity
 import numpy as np
 from tqdm import tqdm
-from pytorch_memlab import LineProfiler
 
-from m2m import M2M
-from mbart import MBART
-from marianmt import MARIANMT
-from data import TRANSLATION_BENCHMARKS, Translation
+from models import M2M, MBART, MARIANMT
+from data.data import TRANSLATION_BENCHMARKS, Translation
 
 
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str, default="m2m")
     parser.add_argument("--weights", type=str, default="facebook/m2m100_418M")
-    parser.add_argument("--data", help="E.g. de-fr, wmt20, top10_gdp", type=str, default="en-fr")
+    parser.add_argument("--data", help="E.g. de-fr, wmt20, gdp-top10", type=str, default="en-fr")
     parser.add_argument("--sample", type=int, default=None)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--out", type=str, default="out.txt")
@@ -34,7 +32,13 @@ def main():
     random.seed(args.seed)
     np.random.seed(args.seed)
 
-    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+    if torch.cuda.is_available():
+        prof_acts = [ProfilerActivity.CPU, ProfilerActivity.CUDA]
+        device = torch.device("cuda")
+    else:
+        prof_acts = [ProfilerActivity.CPU]
+        device = torch.device("cpu")
+
     model = MODELS[args.model](device=device, weights=args.weights)
 
     # Iterate through tasks
@@ -49,16 +53,19 @@ def main():
         # Predict on all data
         src_lang, tar_lang = lang_pair.split("-")
 
-        with LineProfiler(model.greedy_until) as prof:
+        with profile(activities=[prof_acts], record_shapes=True) as prof:
             x = time.time()
             preds = model.greedy_until(src, src_lang, tar_lang)
             avg_speed = (time.time() - x) / len(src)
-        mem_report = prof.display()
 
         # Score on all data
         score = task.score_bleu(preds, ref)
 
-        results[lang_pair] = {"score": score, "avg_speed": avg_speed, "mem_report": mem_report}
+        results[lang_pair] = {
+            "score": score,
+            "avg_speed": avg_speed,
+            "mem_report": prof.key_averages().table(sort_by="cpu_time_total", row_limit=10),
+        }
 
         logging.info(f"Scored {score} on language pair {lang_pair}.")
 
