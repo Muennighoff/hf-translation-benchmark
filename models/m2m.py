@@ -40,7 +40,9 @@ class M2M:
 
         with torch.no_grad():
             for txt in texts:
-                txt_tensor = self.tokenizer(txt, return_tensors="pt")["input_ids"].to(self.device)
+                txt_tensor = self.tokenizer(txt, truncation=True, return_tensors="pt")[
+                    "input_ids"
+                ].to(self.device)
                 gen = self.model.generate(txt_tensor, forced_bos_token_id=forced_bos_token_id).cpu()
                 generations.append(self.tokenizer.batch_decode(gen, skip_special_tokens=True)[0])
 

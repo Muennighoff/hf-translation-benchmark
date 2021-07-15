@@ -6,8 +6,8 @@ sample=${1:-100}
 python main.py --sample $sample --model marianmt --weights Helsinki-NLP/opus-mt-en-zh --data en-zh --out marianmt-en-zh-gdp.txt
 python main.py --sample $sample --model marianmt --weights Helsinki-NLP/opus-mt-zh-en --data zh-en --out marianmt-zh-en-gdp.txt
 
-python main.py --sample $sample --model marianmt --weights Helsinki-NLP/opus-mt-en-jap --data en-jap --out marianmt-en-jap-gdp.txt
-python main.py --sample $sample --model marianmt --weights Helsinki-NLP/opus-mt-jap-en --data jap-en --out marianmt-jap-en-gdp.txt
+python main.py --sample $sample --model marianmt --weights Helsinki-NLP/opus-mt-en-jap --data en-ja --out marianmt-en-jap-gdp.txt
+python main.py --sample $sample --model marianmt --weights Helsinki-NLP/opus-mt-jap-en --data ja-en --out marianmt-jap-en-gdp.txt
 
 python main.py --sample $sample --model marianmt --weights Helsinki-NLP/opus-mt-en-de --data en-de --out marianmt-en-de-gdp.txt
 python main.py --sample $sample --model marianmt --weights Helsinki-NLP/opus-mt-de-en --data de-en --out marianmt-de-en-gdp.txt

@@ -26,7 +26,7 @@ See the table below for a BLEU Score benchmark on the Top 10 languages by countr
 
 
 
-*Run with (lm-evaluation-harness)[https://github.com/EleutherAI/lm-evaluation-harness]
+*Run with [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
 
 
 
@@ -42,7 +42,7 @@ Would require some structural changes, but could definitely be worth it.
 
 ## TODO
 
-- As soon as PyTorch has fixed memory profiling, include memory profiling again, see (1)[https://github.com/pytorch/kineto/issues/308], (2)[https://github.com/pytorch/pytorch/pull/60432]
+- As soon as PyTorch has fixed memory profiling, include memory profiling again, see [1](https://github.com/pytorch/kineto/issues/308), [2](https://github.com/pytorch/pytorch/pull/60432)
 
 
 
