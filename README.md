@@ -15,12 +15,12 @@ python main.py
 
 ### Adding models
 
-Just copy one of the existing models (e.g. m2m.py) & implement the greedy_until method. Then add the model to main.py
+Just copy one of the existing models (e.g. m2m.py) & implement the greedy_until method. 
+Then add the necessary import statements to `models/__init__.py` & `main.py`.
 
 ### Adding data
 
 Would require some structural changes, but could definitely be worth it.
-
 
 ## TODO
 

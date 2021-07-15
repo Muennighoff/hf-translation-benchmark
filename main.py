@@ -53,7 +53,7 @@ def main():
         # Predict on all data
         src_lang, tar_lang = lang_pair.split("-")
 
-        with profile(activities=[prof_acts], record_shapes=True) as prof:
+        with profile(activities=prof_acts, record_shapes=True) as prof:
             x = time.time()
             preds = model.greedy_until(src, src_lang, tar_lang)
             avg_speed = (time.time() - x) / len(src)
