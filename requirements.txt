@@ -1,4 +1,4 @@
 sacrebleu==1.5.0
-torch>=1.7
+torch>=1.9
 transformers[sentencepiece]>=4.1
 pytorch-memlab==0.2.3
