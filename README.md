@@ -20,7 +20,7 @@ Data could be:
 Feel free to add new definitions~
 
 
-### Model Benchmark: GDP-Top10
+### Benchmark Example: Languages of Top-10 GDP Countries
 
 #### Commands used
 
@@ -53,7 +53,8 @@ CPU (no GPU): Intel Xeon 2.20 GHz, 2 Cores
 
 SPEED is reported as **average seconds** per sample.
 
-|             |             | m2m-418    | m2m-1200  | mbart     | marianmt  | GPT-2* |
+
+|             |             | m2m-418    | m2m-1200  | mbart     | marianmt  | gpt-2* |
 | ----------- | ----------- |----------- |-----------|-----------|-----------|-----------|
 | en-zh       |  BLEU       | **0.402**  | **0.276** | **0.235** | **0.350** | **0.021** |
 |             |  GPU-SPEED  | **0.284**  | **0.583** | **0.326** | **0.067** | **X** |
@@ -107,10 +108,10 @@ SPEED is reported as **average seconds** per sample.
 |             |  GPU-SPEED  | **0.280**  | **0.569** | **0.306** | **0.078** | **X** |
 |             |  CPU-SPEED  | **4.716**  | **10.950** | **5.7403** | **1.516** | **X** |
 
-*Run with [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
+*Run with [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness).
 
 
-**Possible** reasons for different results from what's reported in the paper:
+**Possible** reasons for different results from what's reported in the papers:
 - Different models, e.g. M2M 12B parameter model
 - Different data, e.g. EN-ZH from WMT19, not WMT20 as above
 - Original <-> Huggingface differences (The above use HF)
@@ -122,6 +123,7 @@ SPEED is reported as **average seconds** per sample.
 
 Just copy one of the existing models (e.g. m2m.py) & implement the greedy_until method. 
 Then add the necessary import statements to `models/__init__.py` & `main.py`.
+
 Ideas to add:
 - GPT-J
 - GPT-3
@@ -130,6 +132,7 @@ Ideas to add:
 ## Adding data
 
 Would require some structural changes, but could definitely be worth it.
+
 Ideas to add:
 - Tatoeba
 - More non EN pairs
