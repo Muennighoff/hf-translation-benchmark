@@ -1,11 +1,11 @@
 
-## Huggingface 🤗 Translation Benchmark
+# Huggingface 🤗 Translation Benchmark
 
 This simple repository is for quickly benchmarking multilingual transformer models.
 
-## Usage
+# Usage
 
-### Running benchmarking
+## Running benchmarking
 
 ```
 python main.py --model m2m --weights facebook/m2m100_418M --data en-ja
@@ -20,9 +20,9 @@ Data could be:
 Feel free to add new definitions~
 
 
-#### Model Becnhmark: GDP-Top10
+### Model Benchmark: GDP-Top10
 
-##### Commands used
+#### Commands used
 
 ```
 python main.py --model m2m --weights facebook/m2m100_418M --data gdp-top10 --sample 500 --out m2m418-gdp.txt
@@ -42,14 +42,14 @@ bash models/marian-gdp-top10.sh 500 50
 
 Note that the code always samples the same first 500 examples, so all models predicted on the same data.
 
-##### Specs
+#### Specs
 
 GPU: 1x Tesla P100, CUDA 11.0
 CPU (when also GPU): Intel Xeon 2.00 GHz, 1 Core
 
 CPU (no GPU): Intel Xeon 2.20 GHz, 2 Cores
 
-##### Results
+#### Results
 
 SPEED is reported as **average seconds** per sample.
 
@@ -118,7 +118,7 @@ SPEED is reported as **average seconds** per sample.
 - Overstated results
 
 
-### Adding models
+## Adding models
 
 Just copy one of the existing models (e.g. m2m.py) & implement the greedy_until method. 
 Then add the necessary import statements to `models/__init__.py` & `main.py`.
@@ -127,14 +127,14 @@ Ideas to add:
 - GPT-3
 
 
-### Adding data
+## Adding data
 
 Would require some structural changes, but could definitely be worth it.
 Ideas to add:
 - Tatoeba
 - More non EN pairs
 
-## TODO
+# TODO
 
 - As soon as PyTorch has fixed memory profiling, include memory profiling again, see [1](https://github.com/pytorch/kineto/issues/308), [2](https://github.com/pytorch/pytorch/pull/60432)
 
