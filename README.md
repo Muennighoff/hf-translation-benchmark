@@ -45,6 +45,7 @@ Note that the code always samples the same first 500 examples, so all models pre
 #### Specs
 
 GPU: 1x Tesla P100, CUDA 11.0
+
 CPU (when also GPU): Intel Xeon 2.00 GHz, 1 Core
 
 CPU (no GPU): Intel Xeon 2.20 GHz, 2 Cores
