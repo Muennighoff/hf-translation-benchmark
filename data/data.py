@@ -2,6 +2,35 @@ from typing import Dict, List
 
 import sacrebleu
 
+# Language-specific
+import jieba
+import MeCab
+import mecab_ko_dic
+import nagisa
+
+
+### Language Specifics ###
+
+
+def zh_split(zh_text: List[str]) -> List[str]:
+    return [" ".join(jieba.cut(zh_text[0]))]
+
+
+def ja_split(ja_text: List[str]) -> List[str]:
+    return [" ".join(nagisa.tagging(ja_text[0]).words)]
+
+
+def ko_split(ko_text: List[str]) -> List[str]:
+    tagger = MeCab.Tagger(mecab_ko_dic.MECAB_ARGS)
+    # Skip the tags ::2 & the final EOS token :-1
+    return tagger.parse(ko_text[0]).split()[::2][:-1]
+
+
+NO_SPACE_LANG = {"zh": zh_split, "ja": ja_split, "ko": ko_split}
+
+
+### Core logic ###
+
 
 class Translation:
     def __init__(self, sacrebleu_dataset, sacrebleu_language_pair=None) -> None:
@@ -40,11 +69,18 @@ class Translation:
         """
         # TODO (Muennighoff): Format when there are multiple refs
         # refs, preds = _sacreformat(refs, preds)
+
+        # If target lang is e.g. chinese, add spaces
+        if self.lang_codes[-1] in NO_SPACE_LANG:
+            preds = NO_SPACE_LANG[self.lang_codes[-1]](preds)
+            refs = NO_SPACE_LANG[self.lang_codes[-1]](refs)
+
         return sacrebleu.corpus_bleu(preds, [refs]).score
 
 
-TRANSLATION_BENCHMARKS = {}
+### Data Presets ###
 
+TRANSLATION_BENCHMARKS = {}
 
 # Allowing indexing via wmt20 or wmt20-de-fr
 for ds_name in sacrebleu.get_available_testsets():

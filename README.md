@@ -140,6 +140,7 @@ Ideas to add:
 
 # TODO
 
+- Train transformer models to detokenize no-space langs like KO / CN / JP; We don't want to use those additional packages with GPL-license
 - As soon as PyTorch has fixed memory profiling, include memory profiling again, see [1](https://github.com/pytorch/kineto/issues/308), [2](https://github.com/pytorch/pytorch/pull/60432)
 
 
