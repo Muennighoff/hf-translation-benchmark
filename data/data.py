@@ -23,7 +23,7 @@ def ja_split(ja_text: List[str]) -> List[str]:
 def ko_split(ko_text: List[str]) -> List[str]:
     tagger = MeCab.Tagger(mecab_ko_dic.MECAB_ARGS)
     # Skip the tags ::2 & the final EOS token :-1
-    return tagger.parse(ko_text[0]).split()[::2][:-1]
+    return [" ".join(tagger.parse(ko_text[0]).split()[::2][:-1])]
 
 
 NO_SPACE_LANG = {"zh": zh_split, "ja": ja_split, "ko": ko_split}

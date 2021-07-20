@@ -69,13 +69,14 @@ def main():
             "score": score,
             "avg_speed": avg_speed,
             "mem_report": prof.key_averages().table(sort_by="cpu_time_total", row_limit=10),
+            "example": f"Src: {src[0]}\nPred: {preds[0]}\nRef: {ref[0]}",
         }
 
         logging.info(f"Scored {score} on language pair {lang_pair}.")
 
     out_string = f"MODEL REPORT: {args.weights}"
     for lang_pair, info in results.items():
-        out_string += f'\n---------------------------\n{lang_pair}\n\nBLEU\n{info["score"]}\n\nAVG SPEED\n{info["avg_speed"]}\n\nMEM REPORT\n{info["mem_report"]}'
+        out_string += f'\n---------------------------\n{lang_pair}\n\nBLEU\n{info["score"]}\n\nAVG SPEED\n{info["avg_speed"]}\n\nMEM REPORT\n{info["mem_report"]}\n\nEXAMPLE\n{info["example"]}'
 
     print(out_string)
     with open(args.out, "w") as f:

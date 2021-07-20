@@ -25,15 +25,15 @@ Feel free to add new definitions~
 #### Commands used
 
 ```
-python main.py --model m2m --weights facebook/m2m100_418M --data gdp-top10 --sample 500 --out m2m418-gdp.txt
+python main.py --model m2m --weights facebook/m2m100_418M --data gdp-top10 --bs 10 --sample 500 --out m2m418-gdp.txt
 ```
 
 ```
-python main.py --model m2m --weights facebook/m2m100_1.2B --data gdp-top10 --sample 500 --out m2m1200-gdp.txt
+python main.py --model m2m --weights facebook/m2m100_1.2B --data gdp-top10 --bs 5 --sample 500 --out m2m1200-gdp.txt
 ```
 
 ```
-python main.py --model mbart --weights facebook/mbart-large-50-many-to-many-mmt --data gdp-top10 --sample 500 --out mbart-gdp.txt
+python main.py --model mbart --weights facebook/mbart-large-50-many-to-many-mmt --data gdp-top10 --bs 10 --sample 500 --out mbart-gdp.txt
 ```
 
 ```
@@ -57,13 +57,13 @@ SPEED is reported as **average seconds** per sample.
 
 |             |             | m2m-418    | m2m-1200  | mbart     | marianmt  | gpt-2* |
 | ----------- | ----------- |----------- |-----------|-----------|-----------|-----------|
-| en-zh       |  BLEU       | **0.402**  | **0.276** | **0.235** | **0.350** | **0.021** |
+| en-zh       |  BLEU       | **18.224**  | **0.276** | **0.235** | **0.350** | **0.021** |
 |             |  GPU-SPEED  | **0.284**  | **0.583** | **0.326** | **0.067** | **X** |
 |             |  CPU-SPEED  | **4.888**  | **12.199**| **5.601** | **1.216** | **X** |
 | zh-en       |  BLEU       | **20.495** | **25.952**| **22.890**| **21.379**| **0.280** |
 |             |  GPU-SPEED  | **0.410**  | **0.802** | **0.431** | **0.120** | **X** |
 |             |  CPU-SPEED  | **6.861**  | **14.463**| **7.657** | **2.562** | **X** |
-| en-ja       |  BLEU       | **0.910**  | **2.396** | **2.242** | **0.002** | **X** |
+| en-ja       |  BLEU       | **50.980**  | **2.396** | **2.242** | **0.002** | **X** |
 |             |  GPU-SPEED  | **0.290**  | **0.627** | **0.294** | **0.071** | **X** |
 |             |  CPU-SPEED  | **4.729**  | **11.359**| **5.359** | **1.095** | **X** |
 | ja-en       |  BLEU       | **11.375** | **13.150**| **17.588**| **9.059** | **X** |
@@ -140,7 +140,9 @@ Ideas to add:
 
 # TODO
 
+- Speed for 
 - Train transformer models to detokenize no-space langs like KO / CN / JP; We don't want to use those additional packages with GPL-license
+- Rerun GPD Top 10 on good hardware to have it in one output file
 - As soon as PyTorch has fixed memory profiling, include memory profiling again, see [1](https://github.com/pytorch/kineto/issues/308), [2](https://github.com/pytorch/pytorch/pull/60432)
 
 
