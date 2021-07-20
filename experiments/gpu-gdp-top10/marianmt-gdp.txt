@@ -6,26 +6,31 @@ BLEU
 38.91035897299222
 
 AVG SPEED
-0.09148734951019287
+0.09249914026260377
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        94.38%        2.146s        94.38%        2.146s     805.308us       0.000us         0.00%       0.000us       0.000us          2665  
-                                     aten::index_select         0.14%       3.227ms        93.50%        2.126s      16.231ms     656.000us         2.18%     656.000us       5.008us           131  
-                                        aten::embedding         0.01%     263.000us        93.34%        2.122s     106.123ms       0.000us         0.00%     134.000us       6.700us            20  
-                                           aten::linear         0.31%       7.080ms         2.29%      52.133ms     106.611us       0.000us         0.00%       9.747ms      19.933us           489  
-                                           aten::matmul         0.26%       5.868ms         1.22%      27.776ms      56.802us       0.000us         0.00%       7.818ms      15.988us           489  
-                                               aten::mm         0.35%       8.068ms         0.74%      16.917ms      34.595us       7.818ms        25.93%       7.818ms      15.988us           489  
-                                        cudaMemcpyAsync         0.70%      15.955ms         0.70%      15.955ms      55.592us       0.000us         0.00%       0.000us       0.000us           287  
-                                             aten::item         0.02%     497.000us         0.67%      15.311ms     144.443us       0.000us         0.00%     107.000us       1.009us           106  
-                              aten::_local_scalar_dense         0.03%     732.000us         0.65%      14.814ms     139.755us     107.000us         0.35%     107.000us       1.009us           106  
-                                       aten::layer_norm         0.06%       1.377ms         0.59%      13.420ms      77.126us       0.000us         0.00%     909.000us       5.224us           174  
+                                       cudaLaunchKernel        94.16%        2.128s        94.16%        2.128s     798.341us       0.000us         0.00%       0.000us       0.000us          2665  
+                                     aten::index_select         0.15%       3.335ms        93.25%        2.107s      16.084ms     652.000us         2.17%     652.000us       4.977us           131  
+                                        aten::embedding         0.01%     269.000us        93.08%        2.103s     105.157ms       0.000us         0.00%     127.000us       6.350us            20  
+                                           aten::linear         0.32%       7.132ms         2.38%      53.751ms     109.920us       0.000us         0.00%       9.626ms      19.685us           489  
+                                           aten::matmul         0.26%       5.827ms         1.27%      28.758ms      58.810us       0.000us         0.00%       7.721ms      15.789us           489  
+                                               aten::mm         0.37%       8.447ms         0.79%      17.901ms      36.607us       7.721ms        25.68%       7.721ms      15.789us           489  
+                                        cudaMemcpyAsync         0.72%      16.188ms         0.72%      16.188ms      56.404us       0.000us         0.00%       0.000us       0.000us           287  
+                                             aten::item         0.02%     479.000us         0.68%      15.471ms     145.953us       0.000us         0.00%     107.000us       1.009us           106  
+                              aten::_local_scalar_dense         0.04%     835.000us         0.66%      14.992ms     141.434us     107.000us         0.36%     107.000us       1.009us           106  
+                                       aten::layer_norm         0.06%       1.346ms         0.62%      14.089ms      80.971us       0.000us         0.00%     904.000us       5.195us           174  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.274s
-Self CUDA time total: 30.147ms
+Self CPU time total: 2.260s
+Self CUDA time total: 30.063ms
 
+
+EXAMPLE
+Src: Brand in französischem Chemiewerk gelöscht
+Pred: Fire extinguished in French chemical plant
+Ref: Fire extinguished in French chemical plant
 
 
 
@@ -41,26 +46,31 @@ BLEU
 29.1791525160472
 
 AVG SPEED
-0.05526403856277466
+0.05632991933822632
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        92.02%        2.057s        92.02%        2.057s     548.575us       0.000us         0.00%       0.000us       0.000us          3749  
-                                     aten::index_select         0.19%       4.224ms        90.80%        2.029s      10.853ms     950.000us         2.20%     950.000us       5.080us           187  
-                                        aten::embedding         0.02%     338.000us        90.57%        2.024s      72.294ms       0.000us         0.00%     186.000us       6.643us            28  
-                                           aten::linear         0.41%       9.092ms         3.13%      69.842ms     101.959us       0.000us         0.00%      13.424ms      19.597us           685  
-                                           aten::matmul         0.37%       8.218ms         1.69%      37.720ms      55.066us       0.000us         0.00%      10.770ms      15.723us           685  
-                                        cudaMemcpyAsync         1.10%      24.513ms         1.10%      24.513ms      62.693us       0.000us         0.00%       0.000us       0.000us           391  
-                                               aten::mm         0.49%      10.951ms         1.02%      22.815ms      33.307us      10.770ms        24.90%      10.770ms      15.723us           685  
-                                             aten::item         0.03%     629.000us         1.00%      22.374ms     162.130us       0.000us         0.00%     139.000us       1.007us           138  
-                              aten::_local_scalar_dense         0.05%       1.013ms         0.97%      21.745ms     157.572us     139.000us         0.32%     139.000us       1.007us           138  
-                                       aten::is_nonzero         0.01%     158.000us         0.87%      19.489ms     475.341us       0.000us         0.00%      42.000us       1.024us            41  
+                                       cudaLaunchKernel        91.68%        2.123s        91.68%        2.123s     566.409us       0.000us         0.00%       0.000us       0.000us          3749  
+                                     aten::index_select         0.20%       4.651ms        90.45%        2.095s      11.203ms     931.000us         2.20%     931.000us       4.979us           187  
+                                        aten::embedding         0.02%     384.000us        90.20%        2.089s      74.614ms       0.000us         0.00%     183.000us       6.536us            28  
+                                           aten::linear         0.42%       9.792ms         3.23%      74.867ms     109.295us       0.000us         0.00%      13.255ms      19.350us           685  
+                                           aten::matmul         0.37%       8.464ms         1.72%      39.828ms      58.143us       0.000us         0.00%      10.654ms      15.553us           685  
+                                        cudaMemcpyAsync         1.04%      24.153ms         1.04%      24.153ms      61.772us       0.000us         0.00%       0.000us       0.000us           391  
+                                               aten::mm         0.51%      11.717ms         1.04%      24.005ms      35.044us      10.654ms        25.23%      10.654ms      15.553us           685  
+                                             aten::item         0.03%     753.000us         0.94%      21.728ms     157.449us       0.000us         0.00%     139.000us       1.007us           138  
+                              aten::_local_scalar_dense         0.05%       1.158ms         0.91%      20.975ms     151.993us     139.000us         0.33%     139.000us       1.007us           138  
+                                       aten::layer_norm         0.09%       2.032ms         0.87%      20.103ms      81.720us       0.000us         0.00%       1.249ms       5.077us           246  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.235s
-Self CUDA time total: 43.247ms
+Self CPU time total: 2.316s
+Self CUDA time total: 42.233ms
 
+
+EXAMPLE
+Src: Wie Verbrecherorganisationen junge Migranten in Europa ausbeuten
+Pred: Comment exploiter les organisations criminelles des jeunes migrants en Europe
+Ref: En Europe, la tragédie des jeunes migrants exploités par des réseaux clandestins
 
 
 
@@ -76,26 +86,31 @@ BLEU
 29.93233715804032
 
 AVG SPEED
-0.07793260288238525
+0.07843412351608277
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        88.41%        2.392s        88.41%        2.392s     370.128us       0.000us         0.00%       0.000us       0.000us          6462  
-                                     aten::index_select         0.25%       6.695ms        86.63%        2.344s       7.167ms       1.729ms         2.25%       1.729ms       5.287us           327  
-                                        aten::embedding         0.02%     542.000us        86.28%        2.334s      48.631ms       0.000us         0.00%     296.000us       6.167us            48  
-                                           aten::linear         0.51%      13.746ms         4.72%     127.715ms     108.694us       0.000us         0.00%      22.704ms      19.323us          1175  
-                                           aten::matmul         0.83%      22.485ms         2.71%      73.341ms      62.418us       0.000us         0.00%      18.090ms      15.396us          1175  
-                                        cudaMemcpyAsync         1.57%      42.482ms         1.57%      42.482ms      64.957us       0.000us         0.00%       0.000us       0.000us           654  
-                                             aten::item         0.04%     985.000us         1.49%      40.373ms     182.683us       0.000us         0.00%     222.000us       1.005us           221  
-                              aten::_local_scalar_dense         0.06%       1.654ms         1.46%      39.388ms     178.226us     222.000us         0.29%     222.000us       1.005us           221  
-                                               aten::mm         0.70%      18.997ms         1.45%      39.311ms      33.456us      18.090ms        23.53%      18.090ms      15.396us          1175  
-                                       aten::is_nonzero         0.01%     282.000us         1.32%      35.785ms     504.014us       0.000us         0.00%      72.000us       1.014us            71  
+                                       cudaLaunchKernel        87.13%        2.078s        87.13%        2.078s     321.499us       0.000us         0.00%       0.000us       0.000us          6462  
+                                     aten::index_select         0.27%       6.392ms        85.10%        2.029s       6.205ms       1.677ms         2.24%       1.677ms       5.128us           327  
+                                        aten::embedding         0.02%     550.000us        84.72%        2.020s      42.085ms       0.000us         0.00%     285.000us       5.938us            48  
+                                           aten::linear         0.58%      13.772ms         5.23%     124.787ms     106.202us       0.000us         0.00%      22.093ms      18.803us          1175  
+                                           aten::matmul         0.91%      21.686ms         2.99%      71.194ms      60.591us       0.000us         0.00%      17.604ms      14.982us          1175  
+                                        cudaMemcpyAsync         1.72%      40.949ms         1.72%      40.949ms      62.613us       0.000us         0.00%       0.000us       0.000us           654  
+                                             aten::item         0.04%     997.000us         1.63%      38.983ms     176.394us       0.000us         0.00%     222.000us       1.005us           221  
+                                               aten::mm         0.77%      18.411ms         1.61%      38.438ms      32.713us      17.604ms        23.56%      17.604ms      14.982us          1175  
+                              aten::_local_scalar_dense         0.07%       1.751ms         1.59%      37.986ms     171.882us     222.000us         0.30%     222.000us       1.005us           221  
+                                       aten::is_nonzero         0.01%     270.000us         1.45%      34.662ms     488.197us       0.000us         0.00%      72.000us       1.014us            71  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.705s
-Self CUDA time total: 76.882ms
+Self CPU time total: 2.384s
+Self CUDA time total: 74.725ms
 
+
+EXAMPLE
+Src: Michael Jackson wore tape on his nose to get front pages, former bodyguard claims
+Pred: Michael Jackson trug Klebeband auf der Nase, um Titelseiten zu bekommen, behauptet ehemaliger Bodyguard
+Ref: Ehemaliger Bodyguard berichtet: Michael Jackson trug Klebeband auf seiner Nase, um auf die Titelseiten zu kommen
 
 
 
@@ -111,26 +126,31 @@ BLEU
 38.48204099458796
 
 AVG SPEED
-0.04062774324417114
+0.037700149536132814
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        88.49%        2.267s        88.49%        2.267s     401.471us       0.000us         0.00%       0.000us       0.000us          5647  
-                                     aten::index_select         0.26%       6.780ms        86.64%        2.220s       7.789ms       1.509ms         2.26%       1.509ms       5.295us           285  
-                                        aten::embedding         0.02%     533.000us        86.29%        2.211s      52.637ms       0.000us         0.00%     275.000us       6.548us            42  
-                                           aten::linear         0.56%      14.440ms         4.60%     117.952ms     114.739us       0.000us         0.00%      19.968ms      19.424us          1028  
-                                           aten::matmul         0.52%      13.263ms         2.49%      63.739ms      62.003us       0.000us         0.00%      15.923ms      15.489us          1028  
-                                               aten::mm         0.72%      18.374ms         1.51%      38.766ms      37.710us      15.923ms        23.86%      15.923ms      15.489us          1028  
-                                        cudaMemcpyAsync         1.42%      36.277ms         1.42%      36.277ms      63.200us       0.000us         0.00%       0.000us       0.000us           574  
-                                             aten::item         0.04%       1.006ms         1.35%      34.561ms     177.236us       0.000us         0.00%     196.000us       1.005us           195  
-                              aten::_local_scalar_dense         0.06%       1.595ms         1.31%      33.555ms     172.077us     196.000us         0.29%     196.000us       1.005us           195  
-                                       aten::layer_norm         0.12%       3.178ms         1.24%      31.737ms      85.315us       0.000us         0.00%       1.963ms       5.277us           372  
+                                       cudaLaunchKernel        88.78%        2.046s        88.78%        2.046s     362.308us       0.000us         0.00%       0.000us       0.000us          5647  
+                                     aten::index_select         0.24%       5.636ms        87.02%        2.005s       7.037ms       1.452ms         2.25%       1.452ms       5.095us           285  
+                                        aten::embedding         0.02%     475.000us        86.69%        1.998s      47.567ms       0.000us         0.00%     264.000us       6.286us            42  
+                                           aten::linear         0.54%      12.503ms         4.40%     101.400ms      98.638us       0.000us         0.00%      19.382ms      18.854us          1028  
+                                           aten::matmul         0.51%      11.703ms         2.39%      54.975ms      53.478us       0.000us         0.00%      15.503ms      15.081us          1028  
+                                        cudaMemcpyAsync         1.51%      34.856ms         1.51%      34.856ms      60.725us       0.000us         0.00%       0.000us       0.000us           574  
+                                             aten::item         0.04%     888.000us         1.44%      33.297ms     170.754us       0.000us         0.00%     196.000us       1.005us           195  
+                                               aten::mm         0.69%      15.874ms         1.44%      33.105ms      32.203us      15.503ms        24.05%      15.503ms      15.081us          1028  
+                              aten::_local_scalar_dense         0.06%       1.380ms         1.41%      32.409ms     166.200us     196.000us         0.30%     196.000us       1.005us           195  
+                                       aten::is_nonzero         0.01%     257.000us         1.28%      29.558ms     476.742us       0.000us         0.00%      63.000us       1.016us            62  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.562s
-Self CUDA time total: 66.737ms
+Self CPU time total: 2.305s
+Self CUDA time total: 64.470ms
 
+
+EXAMPLE
+Src: So, this is a story about how we know what we know.
+Pred: Donc, c'est une histoire sur la façon dont nous savons ce que nous savons.
+Ref: C'est une histoire à propos de comment on sait ce qu'on sait.
 
 
 
@@ -146,26 +166,31 @@ BLEU
 11.973860467240094
 
 AVG SPEED
-0.06374532794952392
+0.0642680459022522
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        88.74%        2.075s        88.74%        2.075s     367.615us       0.000us         0.00%       0.000us       0.000us          5644  
-                                     aten::index_select         0.25%       5.840ms        87.01%        2.034s       7.139ms       1.460ms         2.15%       1.460ms       5.123us           285  
-                                        aten::embedding         0.02%     505.000us        86.67%        2.027s      48.251ms       0.000us         0.00%     271.000us       6.452us            42  
-                                           aten::linear         0.53%      12.475ms         4.35%     101.759ms      98.987us       0.000us         0.00%      19.961ms      19.417us          1028  
-                                           aten::matmul         0.50%      11.665ms         2.34%      54.742ms      53.251us       0.000us         0.00%      15.987ms      15.552us          1028  
-                                        cudaMemcpyAsync         1.60%      37.461ms         1.60%      37.461ms      66.657us       0.000us         0.00%       0.000us       0.000us           562  
-                                             aten::item         0.04%     833.000us         1.53%      35.787ms     192.403us       0.000us         0.00%     187.000us       1.005us           186  
-                              aten::_local_scalar_dense         0.06%       1.412ms         1.49%      34.954ms     187.925us     187.000us         0.28%     187.000us       1.005us           186  
-                                               aten::mm         0.68%      15.907ms         1.42%      33.121ms      32.219us      15.987ms        23.53%      15.987ms      15.552us          1028  
-                                       aten::is_nonzero         0.01%     264.000us         1.38%      32.204ms     519.419us       0.000us         0.00%      63.000us       1.016us            62  
+                                       cudaLaunchKernel        88.83%        2.084s        88.83%        2.084s     369.233us       0.000us         0.00%       0.000us       0.000us          5644  
+                                     aten::index_select         0.24%       5.696ms        87.14%        2.044s       7.172ms       1.440ms         2.16%       1.440ms       5.053us           285  
+                                        aten::embedding         0.02%     492.000us        86.81%        2.037s      48.489ms       0.000us         0.00%     266.000us       6.333us            42  
+                                           aten::linear         0.51%      12.059ms         4.31%     101.099ms      98.345us       0.000us         0.00%      19.781ms      19.242us          1028  
+                                           aten::matmul         0.49%      11.568ms         2.34%      54.880ms      53.385us       0.000us         0.00%      15.852ms      15.420us          1028  
+                                        cudaMemcpyAsync         1.55%      36.416ms         1.55%      36.416ms      64.797us       0.000us         0.00%       0.000us       0.000us           562  
+                                             aten::item         0.04%     846.000us         1.49%      34.884ms     187.548us       0.000us         0.00%     187.000us       1.005us           186  
+                              aten::_local_scalar_dense         0.06%       1.419ms         1.45%      34.038ms     183.000us     187.000us         0.28%     187.000us       1.005us           186  
+                                               aten::mm         0.69%      16.116ms         1.42%      33.421ms      32.511us      15.852ms        23.73%      15.852ms      15.420us          1028  
+                                       aten::is_nonzero         0.01%     228.000us         1.34%      31.323ms     505.210us       0.000us         0.00%      63.000us       1.016us            62  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.338s
-Self CUDA time total: 67.933ms
+Self CPU time total: 2.346s
+Self CUDA time total: 66.813ms
 
+
+EXAMPLE
+Src: Jet makers feud over seat width with big orders at stake
+Pred: बंदरगाह पर बड़े आदेशों का इस्तेमाल करते हुए
+Ref: सीट चौड़ाई के लिए विवाद से जेट निर्माताओं के बड़े ऑर्डर्स दांव पर ।
 
 
 
@@ -181,26 +206,31 @@ BLEU
 24.24430695152131
 
 AVG SPEED
-0.04675615930557251
+0.04399053430557251
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        89.59%        2.113s        89.59%        2.113s     413.901us       0.000us         0.00%       0.000us       0.000us          5106  
-                                     aten::index_select         0.22%       5.222ms        88.02%        2.076s       8.079ms       1.359ms         1.94%       1.359ms       5.288us           257  
-                                        aten::embedding         0.02%     442.000us        87.72%        2.069s      54.454ms       0.000us         0.00%     256.000us       6.737us            38  
-                                           aten::linear         0.47%      11.146ms         3.86%      91.082ms      97.938us       0.000us         0.00%      19.216ms      20.662us           930  
-                                           aten::matmul         0.45%      10.522ms         2.08%      49.107ms      52.803us       0.000us         0.00%      15.670ms      16.849us           930  
-                                        cudaMemcpyAsync         1.76%      41.577ms         1.76%      41.577ms      78.595us       0.000us         0.00%       0.000us       0.000us           529  
-                                             aten::item         0.04%     852.000us         1.70%      40.067ms     217.755us       0.000us         0.00%     186.000us       1.011us           184  
-                              aten::_local_scalar_dense         0.06%       1.470ms         1.66%      39.215ms     213.125us     186.000us         0.27%     186.000us       1.011us           184  
-                                       aten::is_nonzero         0.01%     225.000us         1.54%      36.239ms     647.125us       0.000us         0.00%      58.000us       1.036us            56  
-                                               aten::mm         0.60%      14.265ms         1.26%      29.759ms      31.999us      15.670ms        22.40%      15.670ms      16.849us           930  
+                                       cudaLaunchKernel        89.52%        2.051s        89.52%        2.051s     401.735us       0.000us         0.00%       0.000us       0.000us          5106  
+                                     aten::index_select         0.23%       5.251ms        87.94%        2.015s       7.840ms       1.327ms         1.93%       1.327ms       5.163us           257  
+                                        aten::embedding         0.02%     432.000us        87.62%        2.008s      52.833ms       0.000us         0.00%     242.000us       6.368us            38  
+                                           aten::linear         0.47%      10.744ms         3.90%      89.253ms      95.971us       0.000us         0.00%      19.048ms      20.482us           930  
+                                           aten::matmul         0.44%      10.194ms         2.11%      48.251ms      51.883us       0.000us         0.00%      15.565ms      16.737us           930  
+                                        cudaMemcpyAsync         1.78%      40.773ms         1.78%      40.773ms      77.076us       0.000us         0.00%       0.000us       0.000us           529  
+                                             aten::item         0.04%     836.000us         1.72%      39.300ms     213.587us       0.000us         0.00%     184.000us       1.000us           184  
+                              aten::_local_scalar_dense         0.06%       1.381ms         1.68%      38.464ms     209.043us     184.000us         0.27%     184.000us       1.000us           184  
+                                       aten::is_nonzero         0.01%     241.000us         1.55%      35.564ms     635.071us       0.000us         0.00%      56.000us       1.000us            56  
+                                               aten::mm         0.61%      13.999ms         1.28%      29.254ms      31.456us      15.565ms        22.61%      15.565ms      16.737us           930  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.359s
-Self CUDA time total: 69.968ms
+Self CPU time total: 2.291s
+Self CUDA time total: 68.827ms
 
+
+EXAMPLE
+Src: Prague Stock Market falls to minus by the end of the trading day
+Pred: Il mercato azionario di Praga scende a meno entro la fine della giornata di negoziazione
+Ref: La Borsa di Praga alla chiusura del mercato ha avuto un crollo negativo.
 
 
 
@@ -213,29 +243,34 @@ MODEL REPORT: Helsinki-NLP/opus-mt-en-jap
 en-ja
 
 BLEU
-0.002072612938363698
+1.962672844874697
 
 AVG SPEED
-0.07060094451904297
+0.06908115148544311
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        81.91%        2.350s        81.91%        2.350s     212.416us       0.000us         0.00%       0.000us       0.000us         11061  
-                                     aten::index_select         0.38%      10.921ms        78.89%        2.263s       4.005ms       3.223ms         2.72%       3.223ms       5.704us           565  
-                                        aten::embedding         0.03%     913.000us        78.32%        2.247s      27.397ms       0.000us         0.00%     515.000us       6.280us            82  
-                                           aten::linear         0.79%      22.606ms         7.53%     216.117ms     107.628us       0.000us         0.00%      36.450ms      18.152us          2008  
-                                           aten::matmul         1.17%      33.606ms         4.30%     123.434ms      61.471us       0.000us         0.00%      28.548ms      14.217us          2008  
-                                               aten::mm         1.15%      32.872ms         2.43%      69.762ms      34.742us      28.548ms        24.06%      28.548ms      14.217us          2008  
-                                        cudaMemcpyAsync         2.09%      59.862ms         2.09%      59.862ms      55.789us       0.000us         0.00%       0.000us       0.000us          1073  
-                                       aten::layer_norm         0.20%       5.668ms         2.01%      57.628ms      78.727us       0.000us         0.00%       3.831ms       5.234us           732  
-                                             aten::item         0.05%       1.576ms         1.96%      56.127ms     165.566us       0.000us         0.00%     340.000us       1.003us           339  
-                              aten::_local_scalar_dense         0.09%       2.572ms         1.90%      54.551ms     160.917us     340.000us         0.29%     340.000us       1.003us           339  
+                                       cudaLaunchKernel        81.66%        2.209s        81.66%        2.209s     199.709us       0.000us         0.00%       0.000us       0.000us         11061  
+                                     aten::index_select         0.39%      10.622ms        78.78%        2.131s       3.772ms       3.172ms         2.67%       3.172ms       5.614us           565  
+                                        aten::embedding         0.03%     874.000us        78.20%        2.115s      25.796ms       0.000us         0.00%     472.000us       5.756us            82  
+                                           aten::linear         0.81%      21.921ms         7.49%     202.737ms     100.965us       0.000us         0.00%      36.604ms      18.229us          2008  
+                                           aten::matmul         1.13%      30.560ms         4.25%     114.941ms      57.242us       0.000us         0.00%      28.624ms      14.255us          2008  
+                                               aten::mm         1.13%      30.672ms         2.41%      65.152ms      32.446us      28.624ms        24.08%      28.624ms      14.255us          2008  
+                                        cudaMemcpyAsync         2.22%      60.074ms         2.22%      60.074ms      55.987us       0.000us         0.00%       0.000us       0.000us          1073  
+                                             aten::item         0.06%       1.534ms         2.09%      56.650ms     167.109us       0.000us         0.00%     340.000us       1.003us           339  
+                              aten::_local_scalar_dense         0.09%       2.532ms         2.04%      55.116ms     162.584us     340.000us         0.29%     340.000us       1.003us           339  
+                                       aten::layer_norm         0.19%       5.253ms         1.98%      53.589ms      73.209us       0.000us         0.00%       3.831ms       5.234us           732  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.869s
-Self CUDA time total: 118.646ms
+Self CPU time total: 2.705s
+Self CUDA time total: 118.867ms
 
+
+EXAMPLE
+Src: Why the Queen made an error of judgement on proroguing Parliament - Joyce McMillan
+Pred: なぜ なら,  内な る 国々 を 誘惑 する 報い と し て, かろうじて 混乱 の 誘惑 に 陥 る から で あ る.
+Ref: なぜ女王は議会停止という判断ミスを犯したのか - ジョイス・マクミラン
 
 
 
@@ -248,29 +283,34 @@ MODEL REPORT: Helsinki-NLP/opus-mt-en-zh
 en-zh
 
 BLEU
-0.3499097520315841
+20.333448190047886
 
 AVG SPEED
-0.0667719030380249
+0.06617189693450928
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        85.91%        2.219s        85.91%        2.219s     316.962us       0.000us         0.00%       0.000us       0.000us          7000  
-                                     aten::index_select         0.30%       7.736ms        83.73%        2.163s       6.092ms       1.892ms         2.12%       1.892ms       5.330us           355  
-                                        aten::embedding         0.02%     626.000us        83.32%        2.152s      41.381ms       0.000us         0.00%     351.000us       6.750us            52  
-                                           aten::linear         0.62%      16.036ms         5.66%     146.248ms     114.885us       0.000us         0.00%      25.370ms      19.929us          1273  
-                                           aten::matmul         0.99%      25.528ms         3.23%      83.490ms      65.585us       0.000us         0.00%      20.360ms      15.994us          1273  
-                                        cudaMemcpyAsync         1.96%      50.609ms         1.96%      50.609ms      72.402us       0.000us         0.00%       0.000us       0.000us           699  
-                                             aten::item         0.04%       1.160ms         1.86%      48.121ms     208.316us       0.000us         0.00%     232.000us       1.004us           231  
-                              aten::_local_scalar_dense         0.07%       1.821ms         1.82%      46.961ms     203.294us     232.000us         0.26%     232.000us       1.004us           231  
-                                               aten::mm         0.83%      21.427ms         1.73%      44.706ms      35.119us      20.360ms        22.80%      20.360ms      15.994us          1273  
-                                       aten::is_nonzero         0.01%     328.000us         1.68%      43.376ms     563.325us       0.000us         0.00%      78.000us       1.013us            77  
+                                       cudaLaunchKernel        82.16%        2.168s        82.16%        2.168s     309.700us       0.000us         0.00%       0.000us       0.000us          7000  
+                                     aten::index_select         0.39%      10.314ms        79.29%        2.092s       5.893ms       1.843ms         2.09%       1.843ms       5.192us           355  
+                                        aten::embedding         0.03%     832.000us        78.70%        2.077s      39.935ms       0.000us         0.00%     320.000us       6.154us            52  
+                                           aten::linear         0.81%      21.281ms         7.55%     199.230ms     156.504us       0.000us         0.00%      24.967ms      19.613us          1273  
+                                           aten::matmul         1.19%      31.502ms         4.32%     113.928ms      89.496us       0.000us         0.00%      20.026ms      15.731us          1273  
+                                               aten::mm         1.14%      30.208ms         2.42%      63.886ms      50.185us      20.026ms        22.71%      20.026ms      15.731us          1273  
+                                       aten::layer_norm         0.19%       4.922ms         1.93%      50.926ms     110.229us       0.000us         0.00%       2.401ms       5.197us           462  
+                                        cudaMemcpyAsync         1.88%      49.618ms         1.88%      49.618ms      70.984us       0.000us         0.00%       0.000us       0.000us           699  
+                                             aten::add_         0.91%      23.961ms         1.78%      47.071ms      36.976us       4.941ms         5.60%       5.388ms       4.233us          1273  
+                                            aten::empty         1.75%      46.282ms         1.78%      46.975ms       9.345us       0.000us         0.00%       0.000us       0.000us          5027  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.583s
-Self CUDA time total: 89.307ms
+Self CPU time total: 2.639s
+Self CUDA time total: 88.163ms
 
+
+EXAMPLE
+Src: Michael Jackson wore tape on his nose to get front pages, former bodyguard claims
+Pred: Michael Jackson在鼻子上贴了录音带 以获得头版 前保镖的声称
+Ref: 前保镖声称迈克尔·杰克逊为登上头条新闻在鼻子上贴上胶带
 
 
 
@@ -286,26 +326,31 @@ BLEU
 23.511347319635252
 
 AVG SPEED
-0.04464881181716919
+0.04652985668182373
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        87.99%        2.079s        87.99%        2.079s     351.263us       0.000us         0.00%       0.000us       0.000us          5918  
-                                     aten::index_select         0.25%       5.964ms        86.18%        2.036s       6.809ms       1.587ms         2.28%       1.587ms       5.308us           299  
-                                        aten::embedding         0.02%     503.000us        85.83%        2.028s      46.085ms       0.000us         0.00%     274.000us       6.227us            44  
-                                           aten::linear         0.54%      12.869ms         4.60%     108.641ms     100.874us       0.000us         0.00%      20.802ms      19.315us          1077  
-                                           aten::matmul         0.52%      12.325ms         2.45%      57.888ms      53.749us       0.000us         0.00%      16.645ms      15.455us          1077  
-                                        cudaMemcpyAsync         1.61%      37.965ms         1.61%      37.965ms      62.960us       0.000us         0.00%       0.000us       0.000us           603  
-                                             aten::item         0.04%     912.000us         1.54%      36.283ms     176.990us       0.000us         0.00%     206.000us       1.005us           205  
-                              aten::_local_scalar_dense         0.06%       1.533ms         1.50%      35.371ms     172.541us     206.000us         0.30%     206.000us       1.005us           205  
-                                               aten::mm         0.70%      16.654ms         1.48%      35.040ms      32.535us      16.645ms        23.91%      16.645ms      15.455us          1077  
-                                       aten::is_nonzero         0.01%     260.000us         1.37%      32.283ms     496.662us       0.000us         0.00%      66.000us       1.015us            65  
+                                       cudaLaunchKernel        87.07%        2.182s        87.07%        2.182s     368.711us       0.000us         0.00%       0.000us       0.000us          5918  
+                                     aten::index_select         0.27%       6.762ms        85.06%        2.132s       7.130ms       1.588ms         2.24%       1.588ms       5.311us           299  
+                                        aten::embedding         0.02%     607.000us        84.69%        2.122s      48.236ms       0.000us         0.00%     266.000us       6.045us            44  
+                                           aten::linear         0.58%      14.411ms         5.01%     125.531ms     116.556us       0.000us         0.00%      21.117ms      19.607us          1077  
+                                           aten::matmul         0.56%      14.025ms         2.70%      67.596ms      62.763us       0.000us         0.00%      16.891ms      15.683us          1077  
+                                               aten::mm         0.79%      19.826ms         1.65%      41.329ms      38.374us      16.891ms        23.87%      16.891ms      15.683us          1077  
+                                        cudaMemcpyAsync         1.55%      38.899ms         1.55%      38.899ms      64.509us       0.000us         0.00%       0.000us       0.000us           603  
+                                             aten::item         0.04%       1.120ms         1.47%      36.815ms     179.585us       0.000us         0.00%     206.000us       1.005us           205  
+                              aten::_local_scalar_dense         0.07%       1.766ms         1.42%      35.695ms     174.122us     206.000us         0.29%     206.000us       1.005us           205  
+                                       aten::layer_norm         0.13%       3.264ms         1.35%      33.856ms      86.810us       0.000us         0.00%       2.033ms       5.213us           390  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.363s
-Self CUDA time total: 69.627ms
+Self CPU time total: 2.506s
+Self CUDA time total: 70.752ms
 
+
+EXAMPLE
+Src: En Europe, la tragédie des jeunes migrants exploités par des réseaux clandestins
+Pred: In Europa die Tragödie junger Migranten, die von illegalen Netzwerken ausgebeutet werden
+Ref: Wie Verbrecherorganisationen junge Migranten in Europa ausbeuten
 
 
 
@@ -321,26 +366,31 @@ BLEU
 38.693989653130664
 
 AVG SPEED
-0.03329606437683105
+0.03201013803482056
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        91.68%        2.251s        91.68%        2.251s     525.028us       0.000us         0.00%       0.000us       0.000us          4288  
-                                     aten::index_select         0.19%       4.621ms        90.31%        2.218s      10.315ms       1.105ms         2.22%       1.105ms       5.140us           215  
-                                        aten::embedding         0.01%     357.000us        90.06%        2.212s      69.115ms       0.000us         0.00%     194.000us       6.062us            32  
-                                           aten::linear         0.40%       9.924ms         3.27%      80.285ms     102.535us       0.000us         0.00%      15.371ms      19.631us           783  
-                                           aten::matmul         0.37%       9.042ms         1.77%      43.425ms      55.460us       0.000us         0.00%      12.293ms      15.700us           783  
-                                               aten::mm         0.52%      12.801ms         1.09%      26.720ms      34.125us      12.293ms        24.68%      12.293ms      15.700us           783  
-                                        cudaMemcpyAsync         1.07%      26.392ms         1.07%      26.392ms      61.664us       0.000us         0.00%       0.000us       0.000us           428  
-                                             aten::item         0.03%     659.000us         1.02%      25.086ms     175.427us       0.000us         0.00%     144.000us       1.007us           143  
-                              aten::_local_scalar_dense         0.05%       1.173ms         0.99%      24.427ms     170.818us     144.000us         0.29%     144.000us       1.007us           143  
-                                       aten::is_nonzero         0.01%     207.000us         0.90%      22.135ms     470.957us       0.000us         0.00%      48.000us       1.021us            47  
+                                       cudaLaunchKernel        91.21%        2.035s        91.21%        2.035s     474.616us       0.000us         0.00%       0.000us       0.000us          4288  
+                                     aten::index_select         0.21%       4.613ms        89.81%        2.004s       9.320ms       1.012ms         2.19%       1.012ms       4.707us           215  
+                                        aten::embedding         0.02%     372.000us        89.54%        1.998s      62.434ms       0.000us         0.00%     171.000us       5.344us            32  
+                                           aten::linear         0.43%       9.517ms         3.46%      77.149ms      98.530us       0.000us         0.00%      14.416ms      18.411us           783  
+                                           aten::matmul         0.40%       8.843ms         1.87%      41.705ms      53.263us       0.000us         0.00%      11.553ms      14.755us           783  
+                                               aten::mm         0.54%      12.094ms         1.14%      25.422ms      32.467us      11.553ms        25.03%      11.553ms      14.755us           783  
+                                        cudaMemcpyAsync         1.10%      24.459ms         1.10%      24.459ms      57.147us       0.000us         0.00%       0.000us       0.000us           428  
+                                             aten::item         0.03%     694.000us         1.05%      23.370ms     163.427us       0.000us         0.00%     144.000us       1.007us           143  
+                              aten::_local_scalar_dense         0.05%       1.133ms         1.02%      22.676ms     158.573us     144.000us         0.31%     144.000us       1.007us           143  
+                                       aten::layer_norm         0.10%       2.133ms         0.93%      20.764ms      73.631us       0.000us         0.00%       1.367ms       4.848us           282  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.456s
-Self CUDA time total: 49.808ms
+Self CPU time total: 2.231s
+Self CUDA time total: 46.151ms
 
+
+EXAMPLE
+Src: C'est une histoire à propos de comment on sait ce qu'on sait.
+Pred: It's a story about how we know what we know.
+Ref: So, this is a story about how we know what we know.
 
 
 
@@ -364,26 +414,31 @@ BLEU
 13.086349634015928
 
 AVG SPEED
-0.05894637060165405
+0.05874205541610718
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        90.95%        2.195s        90.95%        2.195s     540.758us       0.000us         0.00%       0.000us       0.000us          4060  
-                                     aten::index_select         0.16%       3.785ms        89.56%        2.162s      10.756ms       1.292ms         1.69%       1.292ms       6.428us           201  
-                                        aten::embedding         0.02%     392.000us        89.31%        2.156s      71.862ms       0.000us         0.00%     210.000us       7.000us            30  
-                                           aten::linear         0.34%       8.087ms         3.21%      77.547ms     105.650us       0.000us         0.00%      28.034ms      38.193us           734  
-                                           aten::matmul         0.37%       8.909ms         1.77%      42.673ms      58.138us       0.000us         0.00%      25.117ms      34.219us           734  
-                                        cudaMemcpyAsync         1.77%      42.618ms         1.77%      42.618ms      74.247us       0.000us         0.00%       0.000us       0.000us           574  
-                                             aten::item         0.04%     976.000us         1.70%      40.976ms     197.000us       0.000us         0.00%     209.000us       1.005us           208  
-                              aten::_local_scalar_dense         0.07%       1.685ms         1.66%      40.000ms     192.308us     209.000us         0.27%     209.000us       1.005us           208  
-                                       aten::is_nonzero         0.01%     198.000us         1.49%      35.979ms     817.705us       0.000us         0.00%      45.000us       1.023us            44  
-                                               aten::mm         0.52%      12.505ms         1.09%      26.210ms      35.708us      25.117ms        32.83%      25.117ms      34.219us           734  
+                                       cudaLaunchKernel        90.77%        2.129s        90.77%        2.129s     524.290us       0.000us         0.00%       0.000us       0.000us          4060  
+                                     aten::index_select         0.16%       3.688ms        89.36%        2.095s      10.425ms       1.288ms         1.68%       1.288ms       6.408us           201  
+                                        aten::embedding         0.02%     367.000us        89.10%        2.089s      69.648ms       0.000us         0.00%     214.000us       7.133us            30  
+                                           aten::linear         0.34%       8.016ms         3.28%      76.849ms     104.699us       0.000us         0.00%      27.987ms      38.129us           734  
+                                        cudaMemcpyAsync         1.81%      42.427ms         1.81%      42.427ms      73.915us       0.000us         0.00%       0.000us       0.000us           574  
+                                           aten::matmul         0.37%       8.706ms         1.80%      42.224ms      57.526us       0.000us         0.00%      25.110ms      34.210us           734  
+                                             aten::item         0.04%     974.000us         1.74%      40.898ms     196.625us       0.000us         0.00%     209.000us       1.005us           208  
+                              aten::_local_scalar_dense         0.07%       1.627ms         1.70%      39.924ms     191.942us     209.000us         0.27%     209.000us       1.005us           208  
+                                       aten::is_nonzero         0.01%     208.000us         1.54%      36.078ms     819.955us       0.000us         0.00%      45.000us       1.023us            44  
+                                               aten::mm         0.52%      12.231ms         1.11%      26.111ms      35.574us      25.110ms        32.83%      25.110ms      34.210us           734  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.414s
-Self CUDA time total: 76.495ms
+Self CPU time total: 2.345s
+Self CUDA time total: 76.480ms
 
+
+EXAMPLE
+Src: RBS ने दो फॉरेक्स ट्रेडर्स को निलम्बित किया
+Pred: RBS tracked two level traders
+Ref: RBS suspends two forex traders
 
 
 
@@ -399,26 +454,31 @@ BLEU
 29.892438653749704
 
 AVG SPEED
-0.056424238681793214
+0.054084887504577635
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        89.44%        2.409s        89.44%        2.409s     467.934us       0.000us         0.00%       0.000us       0.000us          5148  
-                                     aten::index_select         0.17%       4.478ms        87.94%        2.368s       9.215ms       1.717ms         1.47%       1.717ms       6.681us           257  
-                                        aten::embedding         0.02%     420.000us        87.67%        2.361s      62.136ms       0.000us         0.00%     284.000us       7.474us            38  
-                                           aten::linear         0.35%       9.561ms         3.47%      93.566ms     100.609us       0.000us         0.00%      37.619ms      40.451us           930  
-                                        cudaMemcpyAsync         2.60%      69.893ms         2.60%      69.893ms     102.482us       0.000us         0.00%       0.000us       0.000us           682  
-                                             aten::item         0.04%       1.083ms         2.52%      67.819ms     297.452us       0.000us         0.00%     229.000us       1.004us           228  
-                              aten::_local_scalar_dense         0.07%       1.765ms         2.48%      66.736ms     292.702us     229.000us         0.20%     229.000us       1.004us           228  
-                                       aten::is_nonzero         0.01%     233.000us         2.32%      62.445ms       1.115ms       0.000us         0.00%      57.000us       1.018us            56  
-                                           aten::matmul         0.41%      10.921ms         1.92%      51.695ms      55.586us       0.000us         0.00%      33.948ms      36.503us           930  
-                                               aten::mm         0.56%      15.110ms         1.18%      31.688ms      34.073us      33.948ms        28.97%      33.948ms      36.503us           930  
+                                       cudaLaunchKernel        88.16%        2.045s        88.16%        2.045s     397.314us       0.000us         0.00%       0.000us       0.000us          5148  
+                                     aten::index_select         0.20%       4.693ms        86.59%        2.009s       7.817ms       1.661ms         1.49%       1.661ms       6.463us           257  
+                                        aten::embedding         0.02%     460.000us        86.27%        2.002s      52.672ms       0.000us         0.00%     280.000us       7.368us            38  
+                                           aten::linear         0.40%       9.356ms         3.85%      89.373ms      96.100us       0.000us         0.00%      35.765ms      38.457us           930  
+                                        cudaMemcpyAsync         2.86%      66.299ms         2.86%      66.299ms      97.213us       0.000us         0.00%       0.000us       0.000us           682  
+                                             aten::item         0.05%       1.049ms         2.78%      64.383ms     282.382us       0.000us         0.00%     229.000us       1.004us           228  
+                              aten::_local_scalar_dense         0.08%       1.756ms         2.73%      63.334ms     277.781us     229.000us         0.21%     229.000us       1.004us           228  
+                                       aten::is_nonzero         0.02%     415.000us         2.56%      59.475ms       1.062ms       0.000us         0.00%      57.000us       1.018us            56  
+                                           aten::matmul         0.46%      10.642ms         2.13%      49.512ms      53.239us       0.000us         0.00%      32.252ms      34.680us           930  
+                                               aten::mm         0.62%      14.478ms         1.29%      29.845ms      32.091us      32.252ms        28.95%      32.252ms      34.680us           930  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.693s
-Self CUDA time total: 117.170ms
+Self CPU time total: 2.320s
+Self CUDA time total: 111.425ms
 
+
+EXAMPLE
+Src: La Borsa di Praga alla chiusura del mercato ha avuto un crollo negativo.
+Pred: The Prague Stock Exchange at the closing of the market had a negative collapse.
+Ref: Prague Stock Market falls to minus by the end of the trading day
 
 
 
@@ -434,26 +494,31 @@ BLEU
 0.07380995367563924
 
 AVG SPEED
-0.7206513876914978
+0.7215488319396972
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        29.99%        3.607s        29.99%        3.607s      25.810us       0.000us         0.00%       0.000us       0.000us        139734  
-                                           aten::linear         4.13%     496.399ms        26.76%        3.218s     128.282us       0.000us         0.00%     930.306ms      37.083us         25087  
-                                     aten::index_select         1.17%     140.839ms        19.58%        2.355s     328.998us     154.992ms         5.27%     154.992ms      21.650us          7159  
-                                        aten::embedding         0.10%      12.096ms        17.61%        2.118s       2.068ms       0.000us         0.00%       7.627ms       7.448us          1024  
-                                           aten::matmul         2.75%     330.456ms        14.19%        1.706s      68.006us       0.000us         0.00%     831.048ms      33.127us         25087  
-                                        cudaMemcpyAsync        12.37%        1.488s        12.37%        1.488s      85.335us       0.000us         0.00%       0.000us       0.000us         17438  
-                                             aten::item         0.22%      26.949ms        11.63%        1.399s     271.415us       0.000us         0.00%       5.156ms       1.001us          5153  
-                              aten::_local_scalar_dense         0.37%      43.939ms        11.40%        1.372s     266.186us       5.156ms         0.18%       5.156ms       1.001us          5153  
-                                       aten::is_nonzero         0.06%       7.306ms        10.58%        1.272s     828.968us       0.000us         0.00%       1.537ms       1.001us          1535  
-                                               aten::mm         4.11%     494.839ms         8.37%        1.007s      40.147us     831.048ms        28.23%     831.048ms      33.127us         25087  
+                                       cudaLaunchKernel        30.61%        3.457s        30.61%        3.457s      24.740us       0.000us         0.00%       0.000us       0.000us        139734  
+                                           aten::linear         4.19%     473.160ms        26.15%        2.953s     117.698us       0.000us         0.00%     927.614ms      36.976us         25087  
+                                     aten::index_select         1.18%     133.178ms        20.51%        2.317s     323.620us     154.682ms         5.26%     154.682ms      21.607us          7159  
+                                        aten::embedding         0.10%      11.071ms        18.52%        2.092s       2.043ms       0.000us         0.00%       7.403ms       7.229us          1024  
+                                           aten::matmul         2.73%     308.086ms        13.81%        1.560s      62.177us       0.000us         0.00%     828.613ms      33.030us         25087  
+                                        cudaMemcpyAsync        12.92%        1.459s        12.92%        1.459s      83.667us       0.000us         0.00%       0.000us       0.000us         17438  
+                                             aten::item         0.23%      25.939ms        12.29%        1.388s     269.338us       0.000us         0.00%       5.176ms       1.004us          5153  
+                              aten::_local_scalar_dense         0.37%      42.092ms        12.06%        1.362s     264.304us       5.176ms         0.18%       5.176ms       1.004us          5153  
+                                       aten::is_nonzero         0.06%       6.583ms        11.27%        1.273s     829.298us       0.000us         0.00%       1.543ms       1.005us          1535  
+                                               aten::mm         4.03%     454.622ms         8.14%     919.744ms      36.662us     828.613ms        28.19%     828.613ms      33.030us         25087  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 12.027s
-Self CUDA time total: 2.944s
+Self CPU time total: 11.293s
+Self CUDA time total: 2.939s
 
+
+EXAMPLE
+Src: "嫌いな女ランキング"2位の鈴木奈々 、 " 失礼すぎるボディタッチ"などしくじりエピソードを告白（ザテレビジョン ） - Yahoo!ニュース
+Pred: There be the beyond the spread of it------- Me----------of the name of the plants, which is called the place of the conscience: The border of the men of one With the house of the With With according to the name of a mingled:
+Ref: Suzuki Nana, 2nd place in the ranking of disliked women, talks about her various gaffes, such as extremely rude body touching (The Television) - Yahoo!News
 
 
 
@@ -469,26 +534,31 @@ BLEU
 17.443194580433317
 
 AVG SPEED
-0.04340389156341553
+0.04270884370803833
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        90.67%        2.123s        90.67%        2.123s     491.046us       0.000us         0.00%       0.000us       0.000us          4323  
-                                     aten::index_select         0.16%       3.698ms        89.32%        2.091s       9.726ms       1.459ms         1.77%       1.459ms       6.786us           215  
-                                        aten::embedding         0.02%     408.000us        89.07%        2.085s      65.167ms       0.000us         0.00%     241.000us       7.531us            32  
-                                           aten::linear         0.34%       7.978ms         3.24%      75.812ms      96.822us       0.000us         0.00%      30.271ms      38.660us           783  
-                                        cudaMemcpyAsync         1.88%      43.934ms         1.88%      43.934ms      77.349us       0.000us         0.00%       0.000us       0.000us           568  
-                                             aten::item         0.04%     839.000us         1.79%      41.981ms     223.303us       0.000us         0.00%     189.000us       1.005us           188  
-                                           aten::matmul         0.38%       8.908ms         1.78%      41.583ms      53.107us       0.000us         0.00%      27.187ms      34.722us           783  
-                              aten::_local_scalar_dense         0.06%       1.328ms         1.76%      41.142ms     218.840us     189.000us         0.23%     189.000us       1.005us           188  
-                                       aten::is_nonzero         0.01%     187.000us         1.62%      37.908ms     806.553us       0.000us         0.00%      48.000us       1.021us            47  
-                                               aten::mm         0.52%      12.240ms         1.08%      25.284ms      32.291us      27.187ms        32.97%      27.187ms      34.722us           783  
+                                       cudaLaunchKernel        90.57%        2.262s        90.57%        2.262s     523.158us       0.000us         0.00%       0.000us       0.000us          4323  
+                                     aten::index_select         0.16%       3.947ms        89.19%        2.227s      10.358ms       1.441ms         1.74%       1.441ms       6.702us           215  
+                                        aten::embedding         0.02%     419.000us        88.94%        2.221s      69.402ms       0.000us         0.00%     238.000us       7.438us            32  
+                                           aten::linear         0.35%       8.648ms         3.30%      82.492ms     105.354us       0.000us         0.00%      30.500ms      38.953us           783  
+                                           aten::matmul         0.38%       9.500ms         1.80%      45.066ms      57.556us       0.000us         0.00%      27.404ms      34.999us           783  
+                                        cudaMemcpyAsync         1.75%      43.685ms         1.75%      43.685ms      76.910us       0.000us         0.00%       0.000us       0.000us           568  
+                                             aten::item         0.04%     914.000us         1.67%      41.823ms     222.463us       0.000us         0.00%     189.000us       1.005us           188  
+                              aten::_local_scalar_dense         0.06%       1.475ms         1.64%      40.909ms     217.601us     189.000us         0.23%     189.000us       1.005us           188  
+                                       aten::is_nonzero         0.01%     211.000us         1.50%      37.518ms     798.255us       0.000us         0.00%      48.000us       1.021us            47  
+                                               aten::mm         0.53%      13.303ms         1.10%      27.558ms      35.195us      27.404ms        33.18%      27.404ms      34.999us           783  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.341s
-Self CUDA time total: 82.470ms
+Self CPU time total: 2.497s
+Self CUDA time total: 82.600ms
 
+
+EXAMPLE
+Src: 이 이야기는 우리가 아는 것을 어떻게 아는지에 대한 이야기 입니다.
+Pred: This is how we know what we know.
+Ref: So, this is a story about how we know what we know.
 
 
 
@@ -504,26 +574,31 @@ BLEU
 21.37894248555017
 
 AVG SPEED
-0.12005845212936402
+0.11974504089355469
 
 MEM REPORT
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       cudaLaunchKernel        88.87%        2.349s        88.87%        2.349s     413.057us       0.000us         0.00%       0.000us       0.000us          5687  
-                                     aten::index_select         0.19%       5.032ms        87.31%        2.308s       8.097ms       1.907ms         1.70%       1.907ms       6.691us           285  
-                                        aten::embedding         0.02%     501.000us        87.00%        2.300s      54.755ms       0.000us         0.00%     333.000us       7.929us            42  
-                                           aten::linear         0.39%      10.395ms         3.79%     100.290ms      97.558us       0.000us         0.00%      39.953ms      38.865us          1028  
-                                        cudaMemcpyAsync         2.32%      61.246ms         2.32%      61.246ms      83.441us       0.000us         0.00%       0.000us       0.000us           734  
-                                             aten::item         0.04%       1.063ms         2.22%      58.788ms     250.162us       0.000us         0.00%     236.000us       1.004us           235  
-                              aten::_local_scalar_dense         0.07%       1.865ms         2.18%      57.725ms     245.638us     236.000us         0.21%     236.000us       1.004us           235  
-                                           aten::matmul         0.44%      11.582ms         2.08%      55.093ms      53.592us       0.000us         0.00%      35.880ms      34.903us          1028  
-                                       aten::is_nonzero         0.01%     250.000us         2.03%      53.573ms     864.081us       0.000us         0.00%      63.000us       1.016us            62  
-                                               aten::mm         0.61%      16.135ms         1.27%      33.549ms      32.635us      35.880ms        32.05%      35.880ms      34.903us          1028  
+                                       cudaLaunchKernel        87.73%        2.192s        87.73%        2.192s     385.505us       0.000us         0.00%       0.000us       0.000us          5687  
+                                     aten::index_select         0.21%       5.344ms        85.97%        2.148s       7.538ms       1.918ms         1.71%       1.918ms       6.730us           285  
+                                        aten::embedding         0.02%     473.000us        85.63%        2.140s      50.953ms       0.000us         0.00%     313.000us       7.452us            42  
+                                           aten::linear         0.45%      11.137ms         4.30%     107.369ms     104.445us       0.000us         0.00%      40.023ms      38.933us          1028  
+                                        cudaMemcpyAsync         2.45%      61.241ms         2.45%      61.241ms      83.435us       0.000us         0.00%       0.000us       0.000us           734  
+                                           aten::matmul         0.49%      12.267ms         2.37%      59.124ms      57.514us       0.000us         0.00%      35.975ms      34.995us          1028  
+                                             aten::item         0.05%       1.160ms         2.35%      58.648ms     249.566us       0.000us         0.00%     236.000us       1.004us           235  
+                              aten::_local_scalar_dense         0.07%       1.870ms         2.30%      57.488ms     244.630us     236.000us         0.21%     236.000us       1.004us           235  
+                                       aten::is_nonzero         0.01%     269.000us         2.14%      53.385ms     861.048us       0.000us         0.00%      63.000us       1.016us            62  
+                                               aten::mm         0.70%      17.536ms         1.44%      36.040ms      35.058us      35.975ms        32.08%      35.975ms      34.995us          1028  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 2.643s
-Self CUDA time total: 111.954ms
+Self CPU time total: 2.499s
+Self CUDA time total: 112.134ms
 
+
+EXAMPLE
+Src: 国有企业和优势民营企业走进赣南革命老区。
+Pred: State-owned and dominant private enterprises entered the old region of the South Revolution.
+Ref: State-owned enterprises and advantageous private enterprises entered the revolutionary base area of south Jiangxi.
 
 
 
