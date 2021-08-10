@@ -47,11 +47,9 @@ class MARIANMT:
 
         self.tokenizer = AutoTokenizer.from_pretrained(weights)
 
-    def greedy_until(
-        self, texts: List, src_lang: str, tar_lang: str, batch_size: int = 1
-    ) -> List[str]:
+    def generate(self, texts: List, src_lang: str, tar_lang: str, batch_size: int = 1) -> List[str]:
         """
-        Greedily generates translation of texts from source to target.
+        Generates translations of texts from source to target using the models configured generation settings.
 
         Args:
             texts: Texts to translate

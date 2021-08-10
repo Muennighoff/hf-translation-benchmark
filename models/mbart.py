@@ -65,7 +65,9 @@ MBART_CODES = {
 
 class MBART:
     """
-    M2M model wrapper.
+    MBART model wrapper.
+    See below for the generation settings of MBART (5 beams):
+    https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt/blob/main/config.json
 
     Args:
         device: Where torch should move the model
@@ -81,11 +83,9 @@ class MBART:
 
         self.tokenizer = AutoTokenizer.from_pretrained(weights)
 
-    def greedy_until(
-        self, texts: List, src_lang: str, tar_lang: str, batch_size: int = 1
-    ) -> List[str]:
+    def generate(self, texts: List, src_lang: str, tar_lang: str, batch_size: int = 1) -> List[str]:
         """
-        Greedily generates translation of texts from source to target.
+        Generates translations of texts from source to target using the models configured generation settings.
 
         Args:
             texts: Texts to translate

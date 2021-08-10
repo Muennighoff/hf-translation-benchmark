@@ -8,6 +8,8 @@ from transformers import M2M100ForConditionalGeneration
 class M2M:
     """
     M2M model wrapper.
+    See below for the generation settings of M2M (5 beams):
+    https://huggingface.co/facebook/m2m100_418M/blob/main/config.json
 
     Args:
         device: Where torch should move the model
@@ -21,11 +23,9 @@ class M2M:
 
         self.tokenizer = AutoTokenizer.from_pretrained(weights)
 
-    def greedy_until(
-        self, texts: List, src_lang: str, tar_lang: str, batch_size: int = 1
-    ) -> List[str]:
+    def generate(self, texts: List, src_lang: str, tar_lang: str, batch_size: int = 1) -> List[str]:
         """
-        Greedily generates translation of texts from source to target.
+        Generates translations of texts from source to target using the models configured generation settings.
 
         Args:
             texts: Texts to translate

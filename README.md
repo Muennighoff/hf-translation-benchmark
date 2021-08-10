@@ -122,7 +122,7 @@ SPEED is reported as **average seconds** per sample.
 
 ## Adding models
 
-Just copy one of the existing models (e.g. m2m.py) & implement the greedy_until method. 
+Just copy one of the existing models (e.g. m2m.py) & implement the generate method. 
 Then add the necessary import statements to `models/__init__.py` & `main.py`.
 
 Ideas to add:

@@ -55,12 +55,12 @@ def main():
         src_lang, tar_lang = lang_pair.split("-")
 
         x = time.time()
-        preds = model.greedy_until(src, src_lang, tar_lang, args.bs)
+        preds = model.generate(src, src_lang, tar_lang, args.bs)
         avg_speed = (time.time() - x) / len(src)
 
         # Profile CPU / CUDA usage on just one sample
         with profile(activities=prof_acts, record_shapes=True) as prof:
-            model.greedy_until(src[:1], src_lang, tar_lang)
+            model.generate(src[:1], src_lang, tar_lang)
 
         # Score on all data
         score = task.score_bleu(preds, ref)
