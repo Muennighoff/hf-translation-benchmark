@@ -5,6 +5,14 @@ This simple repository is for quickly benchmarking multilingual transformer mode
 
 # Usage
 
+## Setup
+
+```
+git clone https://github.com/Muennighoff/hf-translation-benchmark.git
+cd hf-translation-benchmark
+pip install -r requirements.txt
+```
+
 ## Running benchmarking
 
 ```
