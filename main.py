@@ -1,6 +1,6 @@
 import argparse
-import random
 import logging
+import random
 import time
 
 import torch
@@ -51,9 +51,10 @@ def main():
         task.download()
         src, ref = task.get_src_ref(args.sample)
 
-        # Predict on all data
         src_lang, tar_lang = lang_pair.split("-")
+        logging.info(f"Starting translation from {src_lang} to {tar_lang}.")
 
+        # Predict on all data
         x = time.time()
         preds = model.generate(src, src_lang, tar_lang, args.bs)
         avg_speed = (time.time() - x) / len(src)
@@ -78,7 +79,7 @@ def main():
     for lang_pair, info in results.items():
         out_string += f'\n---------------------------\n{lang_pair}\n\nBLEU\n{info["score"]}\n\nAVG SPEED\n{info["avg_speed"]}\n\nMEM REPORT\n{info["mem_report"]}\n\nEXAMPLE\n{info["example"]}'
 
-    print(out_string)
+    logging.info(out_string)
     with open(args.out, "w") as f:
         f.write(out_string)
 

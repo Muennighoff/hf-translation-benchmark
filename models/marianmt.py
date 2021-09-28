@@ -47,7 +47,9 @@ class MARIANMT:
 
         self.tokenizer = AutoTokenizer.from_pretrained(weights)
 
-    def generate(self, texts: List, src_lang: str, tar_lang: str, batch_size: int = 1) -> List[str]:
+    def generate(
+        self, texts: List[str], src_lang: str, tar_lang: str, batch_size: int = 1
+    ) -> List[str]:
         """
         Generates translations of texts from source to target using the models configured generation settings.
 
@@ -55,6 +57,7 @@ class MARIANMT:
             texts: Texts to translate
             src_lang: Language code of source language
             tar_lang: Language code of target language
+            batch_size: Rows to process at once
 
         Returns:
             texts: Translated texts
