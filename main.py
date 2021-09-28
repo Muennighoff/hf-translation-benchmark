@@ -21,6 +21,10 @@ def parse_args():
     parser.add_argument("--sample", type=int, default=None)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--out", type=str, default="out.txt")
+
+    parser.add_argument("--baseline", dest="baseline", action="store_true")
+    parser.add_argument("--mergesents", help="How many sentences to merge", type=int, default=5)
+    parser.set_defaults(baseline=False)
     return parser.parse_args()
 
 
@@ -54,14 +58,43 @@ def main():
         src_lang, tar_lang = lang_pair.split("-")
         logging.info(f"Starting translation from {src_lang} to {tar_lang}.")
 
+        if args.baseline is False:
+            multi_src, multi_ref = [], []
+            for i in range(0, len(ref), args.mergesents):
+                multi_src.append(" ".join(src[i : i + args.mergesents]))
+                multi_ref.append(" ".join(ref[i : i + args.mergesents]))
+            src, ref = multi_src, multi_ref
+
+            logging.info(
+                f"Benchmarking: Source reduced to {len(src)} samples with {args.mergesents} sentences each."
+            )
+            logging.info(
+                f"Benchmarking: Target reduced to {len(ref)} samples with {args.mergesents} sentences each."
+            )
+
         # Predict on all data
         x = time.time()
-        preds = model.generate(src, src_lang, tar_lang, args.bs)
+        preds = model.generate(src, tar_lang=tar_lang, src_lang=src_lang, batch_size=args.bs)
         avg_speed = (time.time() - x) / len(src)
+
+        if args.baseline is True:
+            multi_src, multi_ref, multi_preds = [], [], []
+            for i in range(0, len(ref), args.mergesents):
+                multi_src.append(" ".join(src[i : i + args.mergesents]))
+                multi_ref.append(" ".join(ref[i : i + args.mergesents]))
+                multi_preds.append(" ".join(preds[i : i + args.mergesents]))
+            src, ref, preds = multi_src, multi_ref, multi_preds
+
+            logging.info(
+                f"Baseline: Preds reduced to {len(preds)} samples with {args.mergesents} sentences each."
+            )
+            logging.info(
+                f"Baseline: Target reduced to {len(ref)} samples with {args.mergesents} sentences each."
+            )
 
         # Profile CPU / CUDA usage on just one sample
         with profile(activities=prof_acts, record_shapes=True) as prof:
-            model.generate(src[:1], src_lang, tar_lang)
+            model.generate(src[:1], tar_lang=tar_lang, src_lang=src_lang)
 
         # Score on all data
         score = task.score_bleu(preds, ref)
