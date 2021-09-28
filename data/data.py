@@ -84,7 +84,9 @@ for ds_name in sacrebleu.get_available_testsets():
     for lang_pair in sacrebleu.get_langpairs_for_testset(ds_name):
         TRANSLATION_BENCHMARKS[ds_name].append((ds_name, lang_pair))
         TRANSLATION_BENCHMARKS[f"{ds_name}-{lang_pair}"] = [(ds_name, lang_pair)]
-
+         # Setting a default for each lang pair
+        TRANSLATION_BENCHMARKS[lang_pair] = [(ds_name, lang_pair)]
+        
 # Allowing indexing via de-fr by pre-selecting the best datasets
 TRANSLATION_BENCHMARKS["cs-en"] = [("wmt20", "cs-en")]
 TRANSLATION_BENCHMARKS["de-en"] = [("wmt20", "de-en")]
