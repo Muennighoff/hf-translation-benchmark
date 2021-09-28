@@ -78,7 +78,7 @@ class Translation:
 
 TRANSLATION_BENCHMARKS = {}
 
-# Allowing indexing via wmt20 or wmt20-de-fr
+# Allowing indexing via wmt20 or wmt20-de-fr or de-fr
 for ds_name in sacrebleu.get_available_testsets():
     TRANSLATION_BENCHMARKS[ds_name] = []
     for lang_pair in sacrebleu.get_langpairs_for_testset(ds_name):
@@ -87,7 +87,7 @@ for ds_name in sacrebleu.get_available_testsets():
          # Setting a default for each lang pair
         TRANSLATION_BENCHMARKS[lang_pair] = [(ds_name, lang_pair)]
         
-# Allowing indexing via de-fr by pre-selecting the best datasets
+# Overwriting some default languages with most recent / commonly used versions
 TRANSLATION_BENCHMARKS["cs-en"] = [("wmt20", "cs-en")]
 TRANSLATION_BENCHMARKS["de-en"] = [("wmt20", "de-en")]
 TRANSLATION_BENCHMARKS["de-fr"] = [("wmt20", "de-fr")]
