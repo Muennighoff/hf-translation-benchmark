@@ -9,6 +9,7 @@ import MeCab
 import mecab_ko_dic
 import nagisa
 
+
 def zh_split(zh_text: List[str]) -> List[str]:
     return [" ".join(jieba.cut(zh_text[0]))]
 
@@ -21,6 +22,7 @@ def ko_split(ko_text: List[str]) -> List[str]:
     tagger = MeCab.Tagger(mecab_ko_dic.MECAB_ARGS)
     # Skip the tags ::2 & the final EOS token :-1
     return [" ".join(tagger.parse(ko_text[0]).split()[::2][:-1])]
+
 
 NO_SPACE_LANG = {"zh": zh_split, "ja": ja_split, "ko": ko_split}
 
@@ -84,9 +86,9 @@ for ds_name in sacrebleu.get_available_testsets():
     for lang_pair in sacrebleu.get_langpairs_for_testset(ds_name):
         TRANSLATION_BENCHMARKS[ds_name].append((ds_name, lang_pair))
         TRANSLATION_BENCHMARKS[f"{ds_name}-{lang_pair}"] = [(ds_name, lang_pair)]
-         # Setting a default for each lang pair
+        # Setting a default for each lang pair
         TRANSLATION_BENCHMARKS[lang_pair] = [(ds_name, lang_pair)]
-        
+
 # Overwriting some default languages with most recent / commonly used versions
 TRANSLATION_BENCHMARKS["cs-en"] = [("wmt20", "cs-en")]
 TRANSLATION_BENCHMARKS["de-en"] = [("wmt20", "de-en")]

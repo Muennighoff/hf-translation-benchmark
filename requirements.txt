@@ -4,4 +4,5 @@ transformers[sentencepiece]>=4.1
 jieba==0.42.1 # Required only if to Chinese translation
 mecab-python3==1.0.4
 mecab-ko-dic==1.0.0
+nagisa==0.2.7
 pysbd==0.3.4
