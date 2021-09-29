@@ -74,7 +74,13 @@ def main():
 
         # Predict on all data
         x = time.time()
-        preds = model.generate(src, tar_lang=tar_lang, src_lang=src_lang, batch_size=args.bs)
+        preds = model.generate(
+            src,
+            tar_lang=tar_lang,
+            src_lang=src_lang,
+            batch_size=args.bs,
+            split_sentences=not (args.baseline),  # Do not split when computing the baselines
+        )
         avg_speed = (time.time() - x) / len(src)
 
         if args.baseline is True:
