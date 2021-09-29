@@ -263,7 +263,9 @@ class M2M:
             translated_texts: Translated texts
         """
         self.tokenizer.src_lang = src_lang
-        seg = pysbd.Segmenter(language=SRC_TO_PYSBD[src_lang], clean=False)
+        if split_sentences:
+            seg = pysbd.Segmenter(language=SRC_TO_PYSBD[src_lang], clean=False)
+            logging.info(f"Mapped {src_lang} to {SRC_TO_PYSBD[src_lang]}")
 
         translated_texts = []
         success_count = 0
