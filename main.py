@@ -100,7 +100,9 @@ def main():
 
         # Profile CPU / CUDA usage on just one sample
         with profile(activities=prof_acts, record_shapes=True) as prof:
-            model.generate(src[:1], tar_lang=tar_lang, src_lang=src_lang)
+            model.generate(
+                src[:1], tar_lang=tar_lang, src_lang=src_lang, split_sentences=not (args.baseline)
+            )
 
         # Score on all data
         score = task.score_bleu(preds, ref)
