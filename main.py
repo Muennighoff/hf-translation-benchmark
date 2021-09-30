@@ -24,7 +24,14 @@ def parse_args():
 
     parser.add_argument("--baseline", dest="baseline", action="store_true")
     parser.add_argument("--mergesents", help="How many sentences to merge", type=int, default=5)
+    parser.add_argument(
+        "--nosplitting",
+        help="If not to split sentences (after merging)",
+        dest="nosplitting",
+        action="store_true",
+    )
     parser.set_defaults(baseline=False)
+    parser.set_defaults(nosplitting=False)
     return parser.parse_args()
 
 
@@ -79,7 +86,7 @@ def main():
             tar_lang=tar_lang,
             src_lang=src_lang,
             batch_size=args.bs,
-            split_sentences=not (args.baseline),  # Do not split when computing the baselines
+            split_sentences=not (args.nosplitting),
         )
         avg_speed = (time.time() - x) / len(src)
 
@@ -101,7 +108,10 @@ def main():
         # Profile CPU / CUDA usage on just one sample
         with profile(activities=prof_acts, record_shapes=True) as prof:
             model.generate(
-                src[:1], tar_lang=tar_lang, src_lang=src_lang, split_sentences=not (args.baseline)
+                src[:1],
+                tar_lang=tar_lang,
+                src_lang=src_lang,
+                split_sentences=not (args.nosplitting),
             )
 
         # Score on all data
