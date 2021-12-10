@@ -148,7 +148,7 @@ Ideas to add:
 
 # TODO
 
-- Speed for 
+- Add new model from Facebook AI (Broke record of M2M in multilinguality)
 - Train transformer models to detokenize no-space langs like KO / CN / JP; We don't want to use those additional packages with GPL-license
 - Rerun GPD Top 10 on good hardware to have it in one output file
 - As soon as PyTorch has fixed memory profiling, include memory profiling again, see [1](https://github.com/pytorch/kineto/issues/308), [2](https://github.com/pytorch/pytorch/pull/60432)
